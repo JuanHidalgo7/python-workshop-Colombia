@@ -302,6 +302,15 @@ Por ejemplo, si estamos prediciendo el precio de viviendas en dólares, el RMSE 
 <p>El <strong>descenso del gradiente</strong> es un algoritmo de optimización. Su objetivo es encontrar los valores de los parámetros que minimizan la función de costo. La idea es sencilla: si el costo está alto, ajustamos θ₀ y θ₁ poco a poco en la dirección que reduce el error.</p>
 <div class="formula-block"><div class="formula">θⱼ := θⱼ − α · ∂J(θ) / ∂θⱼ</div><div class="formula-label">Regla general de actualización</div></div>
 <p>El símbolo <strong>α</strong> representa la tasa de aprendizaje. Si α es muy pequeña, el modelo aprende lentamente. Si α es demasiado grande, el entrenamiento puede volverse inestable y el costo puede aumentar en lugar de disminuir.</p>
+
+<div class="callout">
+  <strong>Antes de ejecutar este código:</strong> asegúrate de haber ejecutado el bloque anterior. 
+  Este ejemplo reutiliza variables que ya fueron creadas previamente, como 
+  <code>X</code>, <code>y</code>, <code>X_train_scaled</code>, <code>y_test</code> o <code>y_pred</code>. 
+  Si ejecutas este bloque de forma aislada, Python puede mostrar un error de tipo 
+  <code>NameError</code>.
+</div>
+
 <div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>05_descenso_gradiente.py</strong></div><pre><code># Regresión lineal con descenso del gradiente usando el dataset completo.
 # Para facilitar el entrenamiento, usamos una sola característica: tamaño de la casa.
 # Además, normalizamos la característica para evitar números demasiado grandes.
@@ -363,6 +372,15 @@ print(&quot;Precio estimado para 1650 ft²:&quot;, predicted_price)</code></pre>
 <p>En proyectos reales no entrenamos modelos solamente desde cero. Bibliotecas como <strong>scikit-learn</strong> implementan algoritmos optimizados, confiables y fáciles de integrar en flujos de análisis de datos.</p>
 <p>En este ejemplo usaremos las dos características del dataset completo: tamaño de la vivienda y número de habitaciones. Esto convierte el problema en una <strong>regresión lineal múltiple</strong>.</p>
 <div class="formula-block"><div class="formula">h<sub>θ</sub>(x) = θ₀ + θ₁x₁ + θ₂x₂</div><div class="formula-label">Regresión lineal con dos características</div></div>
+
+<div class="callout">
+  <strong>Antes de ejecutar este código:</strong> asegúrate de haber ejecutado el bloque anterior. 
+  Este ejemplo reutiliza variables que ya fueron creadas previamente, como 
+  <code>X</code>, <code>y</code>, <code>X_train_scaled</code>, <code>y_test</code> o <code>y_pred</code>. 
+  Si ejecutas este bloque de forma aislada, Python puede mostrar un error de tipo 
+  <code>NameError</code>.
+</div>
+
 <div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>06_regresion_lineal_sklearn.py</strong></div><pre><code># Regresión lineal múltiple con scikit-learn usando el dataset completo.
 # Aquí usamos dos características: tamaño de la casa y número de habitaciones.
 
@@ -416,6 +434,15 @@ print(&quot;Precio estimado para casa nueva:&quot;, new_price[0])</code></pre></
 <section class="section" id="s7"><div class="container"><div class="section-label red">Sección 07</div><h2>Evaluación de regresión: ¿qué tan bueno es el modelo?</h2>
 <p>Entrenar un modelo no es suficiente. Necesitamos evaluarlo con datos que no haya visto durante el entrenamiento. Por eso dividimos el dataset en entrenamiento y prueba.</p>
 <table class="cmp-table"><tr><th>Métrica</th><th>Qué mide</th><th>Interpretación</th></tr><tr><td>MSE</td><td>Error cuadrático medio</td><td>Penaliza errores grandes; puede ser difícil de interpretar directamente.</td></tr><tr><td>RMSE</td><td>Raíz del MSE</td><td>Se interpreta en las mismas unidades del precio.</td></tr><tr><td>R²</td><td>Proporción de variabilidad explicada</td><td>Más cercano a 1 indica mejor ajuste; puede ser negativo si el modelo es muy malo.</td></tr></table>
+
+<div class="callout">
+  <strong>Antes de ejecutar este código:</strong> asegúrate de haber ejecutado el bloque anterior. 
+  Este ejemplo reutiliza variables que ya fueron creadas previamente, como 
+  <code>X</code>, <code>y</code>, <code>X_train_scaled</code>, <code>y_test</code> o <code>y_pred</code>. 
+  Si ejecutas este bloque de forma aislada, Python puede mostrar un error de tipo 
+  <code>NameError</code>.
+</div>
+
 <div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>07_visualizacion_regresion.py</strong></div><pre><code># Visualización: precio real vs. precio predicho.
 # Un punto cercano a la línea diagonal indica una predicción cercana al valor real.
 
@@ -570,6 +597,15 @@ print(confusion_matrix(y_test, y_pred))
 print(&quot;Reporte de clasificación:&quot;)
 print(classification_report(y_test, y_pred, target_names=data.target_names))</code></pre></div>
 <p>La matriz de confusión permite ver cuántas predicciones fueron correctas y cuántas fueron errores de cada tipo. En aplicaciones médicas, esta información es más importante que mirar únicamente el accuracy.</p>
+
+<div class="callout">
+  <strong>Antes de ejecutar este código:</strong> asegúrate de haber ejecutado el bloque anterior. 
+  Este ejemplo reutiliza variables que ya fueron creadas previamente, como 
+  <code>X</code>, <code>y</code>, <code>X_train_scaled</code>, <code>y_test</code> o <code>y_pred</code>. 
+  Si ejecutas este bloque de forma aislada, Python puede mostrar un error de tipo 
+  <code>NameError</code>.
+</div>
+
 <div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>11_matriz_confusion.py</strong></div><pre><code># Matriz de confusión visual.
 # Filas: clase real.
 # Columnas: clase predicha.
@@ -595,6 +631,15 @@ plt.show()</code></pre></div>
 
 <section class="section" id="s12"><div class="container"><div class="section-label red">Sección 12</div><h2>Ejercicios finales, regularización y cierre</h2>
 <p>La regularización ayuda a reducir el sobreajuste. En regresión logística con scikit-learn, el parámetro <code>C</code> controla la fuerza de regularización de forma inversa: valores más pequeños aplican más regularización.</p>
+
+<div class="callout">
+  <strong>Antes de ejecutar este código:</strong> asegúrate de haber ejecutado el bloque anterior. 
+  Este ejemplo reutiliza variables que ya fueron creadas previamente, como 
+  <code>X</code>, <code>y</code>, <code>X_train_scaled</code>, <code>y_test</code> o <code>y_pred</code>. 
+  Si ejecutas este bloque de forma aislada, Python puede mostrar un error de tipo 
+  <code>NameError</code>.
+</div>
+
 <div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>12_regularizacion.py</strong></div><pre><code># Regularización en regresión logística.
 # C controla la fuerza de regularización en scikit-learn.
 # C pequeño = más regularización.
