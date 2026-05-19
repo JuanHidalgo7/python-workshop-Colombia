@@ -79,6 +79,79 @@ p code, li code { background:var(--code); border:1px solid var(--border); paddin
 footer { padding:42px 24px; text-align:center; color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; }
 .scroll-top { position:fixed; bottom:22px; right:22px; width:42px; height:42px; border:1px solid var(--border); background:var(--surface2); color:var(--muted); border-radius:8px; cursor:pointer; z-index:10; }
 .scroll-top:hover { color:var(--accent); border-color:var(--accent); }
+
+  .solution-toggle-btn {
+    margin-top: 18px;
+    background: var(--accent);
+    color: #ffffff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .solution-toggle-btn:hover {
+    background: #357fd8;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(79, 156, 249, 0.25);
+  }
+
+  /* Botón azul */
+  .solution-toggle-btn.blue {
+    background: var(--accent);
+    color: #ffffff;
+  }
+
+  .solution-toggle-btn.blue:hover {
+    background: #357fd8;
+    box-shadow: 0 6px 14px rgba(79, 156, 249, 0.25);
+  }
+
+  /* Botón naranja */
+  .solution-toggle-btn.orange {
+    background: var(--accent2);
+    color: #ffffff;
+  }
+
+  .solution-toggle-btn.orange:hover {
+    background: #d65f0d;
+    box-shadow: 0 6px 14px rgba(249, 115, 22, 0.25);
+  }
+
+  /* Botón verde */
+  .solution-toggle-btn.green {
+    background: var(--accent3);
+    color: #061710;
+  }
+
+  .solution-toggle-btn.green:hover {
+    background: #18b88d;
+    box-shadow: 0 6px 14px rgba(34, 211, 165, 0.25);
+  }
+
+  /* Botón rojo */
+  .solution-toggle-btn.red {
+    background: var(--accent4);
+    color: #ffffff;
+  }
+
+  .solution-toggle-btn.red:hover {
+    background: #d92f4f;
+    box-shadow: 0 6px 14px rgba(244, 63, 94, 0.25);
+  }
+
+  .exercise-solution {
+    display: none;
+    margin-top: 22px;
+  }
+
+  .exercise-solution.show {
+    display: block;
+  }
+
 </style>
 </head>
 <body>
@@ -116,7 +189,7 @@ footer { padding:42px 24px; text-align:center; color:var(--muted); font-family:'
 <div class="info-grid"><div class="info-card"><div class="info-card-title">Entrada X</div><div class="info-card-val">Tamaño, habitaciones, antigüedad, zona...</div></div><div class="info-card"><div class="info-card-title">Salida y</div><div class="info-card-val">Precio, demanda, temperatura, ingreso...</div></div></div>
 <p>La idea central de la regresión lineal es encontrar una relación aproximada entre las características de entrada y el valor que deseamos predecir. Si una casa es más grande, posiblemente su precio sea más alto. Sin embargo, el modelo no memoriza una tabla: aprende una regla general para estimar precios en casos nuevos.</p>
 <div class="callout"><strong>Ejemplo intuitivo:</strong> si observamos que casas de 1000 ft² cuestan cerca de 170,000 USD y casas de 3000 ft² cuestan cerca de 540,000 USD, podemos intentar trazar una línea que represente esa tendencia general.</div>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota del instructor</button><div class="instructor-note hidden"><strong>Nota para el instructor:</strong> Antes de mostrar fórmulas, pida a los participantes que expliquen con sus propias palabras qué variables podrían influir en el precio de una vivienda. Esto ayuda a conectar el concepto de característica con un caso real.</div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Antes de revisar las fórmulas, expliquen con sus propias palabras qué variables consideran que podrían influir en el precio de una vivienda. Por ejemplo, pueden pensar en el tamaño de la casa, el número de habitaciones, la ubicación, la antigüedad de la construcción o las condiciones del mercado. Esta reflexión les ayudará a relacionar el concepto de característica con un caso real de predicción.</div></div>
 </div></section>
 
 <section class="section" id="s2"><div class="container"><div class="section-label">Sección 02</div><h2>Dataset completo de precios de vivienda</h2>
@@ -169,7 +242,7 @@ print(&quot;Columnas disponibles:&quot;, df.columns.tolist())
 print(&quot;\nResumen estadístico:&quot;)
 print(df.describe())</code></pre></div>
 <div class="highlight-box"><p><strong>Idea clave:</strong> mientras más ejemplos representativos tenga el modelo, más oportunidades tiene de aprender un patrón útil. Usar solo una muestra pequeña puede hacer que el modelo se ajuste a pocos casos y generalice peor.</p></div>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota del instructor</button><div class="instructor-note hidden"><strong>Nota para el instructor:</strong> Resalte que el dataset contiene dos características. Primero se puede explicar regresión lineal simple usando solo size_ft2. Después se puede ampliar a regresión múltiple usando también bedrooms.</div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Observen que el dataset contiene dos características: size_ft2 y bedrooms. Primero, analicen cómo podría predecirse el precio de una vivienda usando únicamente el tamaño de la casa mediante una regresión lineal simple. Después, expliquen cómo cambiaría el análisis si también se incluye el número de habitaciones para construir una regresión lineal múltiple.</div></div>
 </div></section>
 
 <section class="section" id="s3"><div class="container"><div class="section-label">Sección 03</div><h2>La función hipótesis: cómo el modelo produce una predicción</h2>
@@ -190,7 +263,7 @@ prediction = theta0 + theta1 * size
 
 print(&quot;Precio estimado:&quot;, prediction)</code></pre></div>
 <p>Este ejemplo no entrena un modelo; solo muestra cómo se calcula una predicción cuando ya tenemos valores para θ₀ y θ₁. El entrenamiento consiste precisamente en encontrar buenos valores para esos parámetros.</p>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota del instructor</button><div class="instructor-note hidden"><strong>Nota para el instructor:</strong> Haga énfasis en que la hipótesis no es todavía inteligente por sí sola. La inteligencia del modelo aparece cuando ajustamos θ₀ y θ₁ usando datos.</div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Reflexionen sobre la función de hipótesis en regresión lineal. Expliquen por qué una hipótesis como h(x) = θ₀ + θ₁x no es “inteligente” por sí sola al inicio. Después, comenten cómo el modelo comienza a aprender cuando ajusta los valores de θ₀ y θ₁ usando los datos del dataset.</div></div>
 </div></section>
 
 <section class="section" id="s4"><div class="container"><div class="section-label orange">Sección 04</div><h2>Función de costo: medir qué tan mal predice el modelo</h2>
@@ -220,7 +293,9 @@ print(&quot;Errores cuadrados:&quot;, squared_errors)
 print(&quot;MSE:&quot;, mse)
 print(&quot;RMSE:&quot;, np.sqrt(mse))</code></pre></div>
 <div class="info-grid"><div class="info-card"><div class="info-card-title">MSE</div><div class="info-card-val">Promedio de errores cuadrados</div></div><div class="info-card"><div class="info-card-title">RMSE</div><div class="info-card-val">Raíz del MSE, en unidades del precio</div></div></div>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota del instructor</button><div class="instructor-note hidden"><strong>Nota para el instructor:</strong> Explique que RMSE suele ser más fácil de interpretar porque vuelve a las unidades originales. Si el precio está en dólares, el RMSE también se interpreta en dólares.</div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen por qué el RMSE suele ser más fácil de interpretar que el MSE. Recuerden que el MSE eleva los errores al cuadrado, por lo que sus unidades también quedan elevadas al cuadrado. En cambio, el RMSE aplica una raíz cuadrada y regresa el error a las unidades originales del problema.
+
+Por ejemplo, si estamos prediciendo el precio de viviendas en dólares, el RMSE también se interpreta en dólares. Esto permite decir algo como: “En promedio, el modelo se equivoca aproximadamente por 25,000 dólares”. Esta interpretación es más clara y práctica que decir que el error cuadrático medio es un número expresado en dólares al cuadrado.</div></div>
 </div></section>
 
 <section class="section" id="s5"><div class="container"><div class="section-label">Sección 05</div><h2>Descenso del gradiente: aprender ajustando parámetros</h2>
@@ -281,7 +356,7 @@ new_size_norm = (new_size - x_mean) / x_std
 predicted_price = theta0 + theta1 * new_size_norm
 print(&quot;Precio estimado para 1650 ft²:&quot;, predicted_price)</code></pre></div>
 <div class="exercise-box"><div class="exercise-title">Ejercicio breve</div><p>Ejecute el código cambiando <code>alpha</code> a <code>0.001</code>, <code>0.01</code> y <code>0.1</code>. Observe cómo cambia el costo final. El objetivo es identificar cuándo el aprendizaje es lento y cuándo empieza a ser inestable.</p></div>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota del instructor</button><div class="instructor-note hidden"><strong>Nota para el instructor:</strong> Cuando explique el ciclo for, relacione cada iteración con una pequeña corrección del modelo. No presente el gradiente como una fórmula aislada, sino como una brújula que indica hacia dónde bajar el error.</div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Observen el ciclo <code>for</code> como una serie de pequeñas correcciones que el modelo realiza paso a paso. En cada iteración, el modelo revisa qué tan lejos están sus predicciones de los valores reales y ajusta ligeramente sus parámetros para reducir el error. <p>Piensen en el <strong>gradiente</strong> como una brújula: no es solo una fórmula matemática, sino una señal que le indica al modelo hacia dónde debe moverse para bajar el error. Si el modelo está muy alejado de una buena predicción, el gradiente le ayuda a corregir el rumbo; si ya está cerca, los cambios se vuelven más pequeños hasta acercarse al mejor ajuste posible.</p></div></div>
 </div></section>
 
 <section class="section" id="s6"><div class="container"><div class="section-label">Sección 06</div><h2>Regresión lineal múltiple con scikit-learn</h2>
@@ -335,7 +410,7 @@ new_price = model.predict(new_house_scaled)
 
 print(&quot;Precio estimado para casa nueva:&quot;, new_price[0])</code></pre></div>
 <p>Después del entrenamiento, el modelo genera un intercepto y dos coeficientes: uno asociado al tamaño de la vivienda y otro asociado al número de habitaciones. Estos coeficientes indican cómo contribuye cada variable a la predicción, considerando que los datos fueron escalados.</p>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota del instructor</button><div class="instructor-note hidden"><strong>Nota para el instructor:</strong> Aclare que los coeficientes de datos escalados no se interpretan igual que los coeficientes en unidades originales. Con StandardScaler, el coeficiente representa el cambio asociado a una desviación estándar de la característica.</div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen por qué los coeficientes de un modelo no siempre se interpretan de la misma manera cuando los datos han sido escalados. Cuando usamos <code>StandardScaler</code>, las características dejan de estar expresadas en sus unidades originales, como pies cuadrados o número de habitaciones, y pasan a representarse en términos de desviaciones estándar. <p> Por esta razón, un coeficiente ya no significa “cuánto cambia el precio por cada unidad adicional de la característica”. En su lugar, significa cuánto cambia la predicción cuando esa característica aumenta una desviación estándar, manteniendo las demás características constantes. Por ejemplo, si la característica <code>size_ft2</code> fue escalada con <code>StandardScaler</code>, su coeficiente no debe interpretarse como el cambio en el precio por cada pie cuadrado adicional. Debe interpretarse como el cambio estimado en el precio cuando el tamaño de la vivienda aumenta una desviación estándar respecto al promedio del dataset.</p></div></div>
 </div></section>
 
 <section class="section" id="s7"><div class="container"><div class="section-label red">Sección 07</div><h2>Evaluación de regresión: ¿qué tan bueno es el modelo?</h2>
@@ -360,7 +435,11 @@ plt.title(&quot;Regresión lineal: precio real vs. precio predicho&quot;)
 plt.grid(True, alpha=0.3)
 plt.show()</code></pre></div>
 <div class="callout"><strong>Lectura del gráfico:</strong> si los puntos se agrupan cerca de la línea diagonal, el modelo predice bien. Si se alejan mucho, el modelo comete errores grandes.</div>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota del instructor</button><div class="instructor-note hidden"><strong>Nota para el instructor:</strong> Invite a los participantes a no confiar solo en una métrica. Un modelo puede tener un R² aceptable y aun así cometer errores grandes en ciertos rangos de precios.</div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen por qué no es recomendable evaluar un modelo usando una sola métrica. Aunque un modelo tenga un valor de <strong>R²</strong> aceptable, eso no significa necesariamente que sus predicciones sean buenas en todos los casos.</p>
+
+<p>Recuerden que el <strong>R²</strong> indica qué proporción de la variabilidad de los datos puede explicar el modelo, pero no muestra directamente en qué casos específicos el modelo se equivoca más. Por ejemplo, un modelo podría funcionar bien para viviendas de precio medio, pero cometer errores grandes al predecir viviendas muy económicas o muy costosas.</p>
+
+<p>Por eso, además de revisar el <strong>R²</strong>, también conviene analizar métricas como el <strong>MAE</strong>, el <strong>MSE</strong> o el <strong>RMSE</strong>, y observar gráficamente la diferencia entre los valores reales y los valores predichos. De esta manera, podemos tener una visión más completa del desempeño del modelo.</p></div></div>
 </div></section>
 
 <div class="part-divider container"><span class="part-label" style="color:var(--accent2); border-color:#6b3510;">Parte II — Regresión logística</span></div>
@@ -370,7 +449,13 @@ plt.show()</code></pre></div>
 <p>La <strong>regresión logística</strong>, aunque incluye la palabra regresión, se utiliza principalmente para <strong>clasificación binaria</strong>. En lugar de predecir un número sin límite, produce una probabilidad entre 0 y 1.</p>
 <table class="cmp-table"><tr><th>Aspecto</th><th>Regresión lineal</th><th>Regresión logística</th></tr><tr><td>Tipo de salida</td><td>Valor numérico continuo</td><td>Probabilidad entre 0 y 1</td></tr><tr><td>Uso común</td><td>Predecir precios, ventas, consumo</td><td>Clasificar sí/no, verdadero/falso, clase 0/1</td></tr><tr><td>Función principal</td><td>Línea recta o hiperplano</td><td>Función sigmoide aplicada a una combinación lineal</td></tr></table>
 <div class="highlight-box"><p><strong>Ejemplo:</strong> si el modelo devuelve 0.82 para un correo, podemos interpretarlo como 82% de probabilidad de que pertenezca a la clase positiva, por ejemplo, spam.</p></div>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota del instructor</button><div class="instructor-note hidden"><strong>Nota para el instructor:</strong> Corrija una confusión común: la regresión logística no se usa para predecir cantidades continuas, sino probabilidades que luego se convierten en clases.</div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen una confusión común sobre la <strong>regresión logística</strong>. Aunque su nombre incluye la palabra “regresión”, este algoritmo no se utiliza para predecir cantidades continuas como precios, salarios, temperaturas o ventas.</p>
+
+<p>La regresión logística se utiliza principalmente para resolver problemas de <strong>clasificación</strong>. Es decir, ayuda a decidir si un ejemplo pertenece o no a una determinada clase. Por ejemplo: si un correo es spam o no es spam, si una transacción es fraudulenta o legítima, o si una vivienda pertenece a una categoría de precio alto o bajo.</p>
+
+<p>El modelo primero calcula una <strong>probabilidad</strong>, normalmente un valor entre <code>0</code> y <code>1</code>. Después, esa probabilidad se convierte en una clase usando un umbral de decisión. Por ejemplo, si el modelo calcula una probabilidad de <code>0.82</code> y el umbral es <code>0.5</code>, el resultado se clasifica como clase positiva, es decir, <code>1</code>.</p>
+
+<p>En resumen, la regresión logística no responde directamente preguntas como “¿cuánto cuesta esta vivienda?”, sino preguntas como “¿esta vivienda pertenece a la categoría de precio alto?” o “¿este caso pertenece a la clase positiva?”.</p></div></div>
 </div></section>
 
 <section class="section" id="s9"><div class="container"><div class="section-label orange">Sección 09</div><h2>Función sigmoide y frontera de decisión</h2>
@@ -415,7 +500,13 @@ predictions = (prob_pass &gt;= 0.5).astype(int)
 for h, p, pred in zip(hours, prob_pass, predictions):
     print(f&quot;Horas: {h} | Probabilidad de aprobar: {p:.2f} | Clase: {pred}&quot;)</code></pre></div>
 <div class="callout"><strong>Frontera de decisión:</strong> es el punto o línea donde el modelo cambia de una clase a otra. En un caso simple, ocurre cuando la probabilidad llega a 0.5.</div>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota del instructor</button><div class="instructor-note hidden"><strong>Nota para el instructor:</strong> Use el ejemplo de horas de estudio para explicar que una probabilidad no es una certeza. Un estudiante con 0.70 de probabilidad de aprobar todavía podría reprobar.</div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen el significado de una <strong>probabilidad</strong> dentro de un modelo de clasificación. Una probabilidad no debe interpretarse como una certeza absoluta, sino como una estimación del nivel de confianza del modelo sobre un posible resultado.</p>
+
+<p>Por ejemplo, supongamos que un modelo usa las <strong>horas de estudio</strong> de un estudiante para estimar si aprobará un examen. Si el modelo calcula una probabilidad de <code>0.70</code>, esto significa que, según los patrones aprendidos en los datos, el estudiante tiene un <strong>70% de probabilidad de aprobar</strong>.</p>
+
+<p>Sin embargo, eso no significa que aprobará con seguridad. Todavía existe un <strong>30% de probabilidad de reprobar</strong>. En otras palabras, un estudiante con una probabilidad de <code>0.70</code> podría aprobar, pero también podría reprobar.</p>
+
+<p>Por esta razón, en regresión logística debemos entender la salida del modelo como una <strong>probabilidad estimada</strong>, no como una garantía. Después, esa probabilidad se convierte en una clase usando un umbral de decisión, por ejemplo <code>0.5</code>.</p></div></div>
 </div></section>
 
 <section class="section" id="s10"><div class="container"><div class="section-label green">Sección 10</div><h2>Costo logístico y entrenamiento</h2>
@@ -423,7 +514,13 @@ for h, p, pred in zip(hours, prob_pass, predictions):
 <div class="formula-block"><div class="formula">J(θ) = −(1/m) Σ [y log(h(x)) + (1 − y) log(1 − h(x))]</div><div class="formula-label">Costo para clasificación binaria</div></div>
 <ul class="content-list"><li>Si la clase real es 1 y el modelo predice una probabilidad cercana a 1, el costo es bajo.</li><li>Si la clase real es 1 y el modelo predice una probabilidad cercana a 0, el costo es muy alto.</li><li>La función castiga con fuerza al modelo cuando está muy seguro de una respuesta equivocada.</li></ul>
 <div class="highlight-box"><p><strong>Idea clave:</strong> el entrenamiento busca ajustar los parámetros para que las probabilidades sean altas en ejemplos positivos y bajas en ejemplos negativos.</p></div>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota del instructor</button><div class="instructor-note hidden"><strong>Nota para el instructor:</strong> No es necesario demostrar toda la derivada en una sesión introductoria. Enfatice la intuición: el costo baja cuando el modelo asigna probabilidades coherentes con las etiquetas reales.</div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen la función de costo de la regresión logística desde una perspectiva intuitiva. En una sesión introductoria no es necesario demostrar toda la derivada matemática; lo más importante es comprender qué intenta lograr el modelo.</p>
+
+<p>La idea central es que el <strong>costo disminuye</strong> cuando el modelo asigna probabilidades coherentes con las etiquetas reales. Por ejemplo, si un caso pertenece a la clase positiva, es decir, <code>y = 1</code>, el modelo debería asignarle una probabilidad alta, como <code>0.85</code> o <code>0.90</code>. En cambio, si le asigna una probabilidad baja, como <code>0.10</code>, el costo aumenta porque la predicción va en contra de la etiqueta real.</p>
+
+<p>De la misma manera, si un caso pertenece a la clase negativa, es decir, <code>y = 0</code>, el modelo debería asignarle una probabilidad cercana a <code>0</code>. Si el modelo predice una probabilidad muy alta para esa clase positiva, por ejemplo <code>0.92</code>, estaría cometiendo un error importante y la función de costo lo penalizaría.</p>
+
+<p>En resumen, la función de costo ayuda al modelo a aprender porque recompensa las probabilidades que coinciden con las etiquetas reales y penaliza las probabilidades equivocadas, especialmente cuando el modelo se equivoca con mucha seguridad.</p></div></div>
 </div></section>
 
 <section class="section" id="s11"><div class="container"><div class="section-label green">Sección 11</div><h2>Regresión logística con scikit-learn</h2>
@@ -485,7 +582,15 @@ display = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=data.target
 display.plot()
 plt.title(&quot;Matriz de confusión - Regresión logística&quot;)
 plt.show()</code></pre></div>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota del instructor</button><div class="instructor-note hidden"><strong>Nota para el instructor:</strong> Explique el significado de falsos positivos y falsos negativos. En salud, un falso negativo puede ser especialmente grave porque el modelo indica que no hay problema cuando sí lo hay.</div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen el significado de los <strong>falsos positivos</strong> y los <strong>falsos negativos</strong> dentro de un modelo de clasificación. Estos errores son importantes porque no todos los errores tienen el mismo impacto en la vida real.</p>
+
+<p>Un <strong>falso positivo</strong> ocurre cuando el modelo predice que un caso pertenece a la clase positiva, pero en realidad no pertenece a esa clase. Por ejemplo, en un contexto de salud, sería cuando el modelo indica que una persona podría tener una enfermedad, pero realmente no la tiene.</p>
+
+<p>Un <strong>falso negativo</strong> ocurre cuando el modelo predice que un caso pertenece a la clase negativa, pero en realidad sí pertenece a la clase positiva. En salud, este tipo de error puede ser especialmente grave, porque el modelo indica que no hay problema cuando en realidad sí lo hay.</p>
+
+<p>Por ejemplo, si un modelo analiza información médica y predice que un paciente no tiene una enfermedad, pero el paciente sí la tiene, se produce un falso negativo. Esto podría retrasar el diagnóstico, el tratamiento y la atención necesaria.</p>
+
+<p>Por esta razón, al evaluar modelos de clasificación no basta con revisar solo la exactitud general. También es importante analizar la matriz de confusión, la precisión y el recall, especialmente cuando los falsos negativos pueden tener consecuencias graves.</p></div></div>
 </div></section>
 
 <section class="section" id="s12"><div class="container"><div class="section-label red">Sección 12</div><h2>Ejercicios finales, regularización y cierre</h2>
@@ -501,14 +606,358 @@ for C in [0.01, 0.1, 1, 10, 100]:
     score = model.score(X_test_scaled, y_test)
     print(f&quot;C = {C:&lt;6} | Accuracy = {score:.4f}&quot;)</code></pre></div>
 <h3 class="red">Ejercicios sugeridos</h3>
-<div class="exercise-box"><div class="exercise-title">Ejercicio 1 — Regresión lineal múltiple</div><p>Modifique el ejemplo de housing prices para probar una predicción con diferentes valores de tamaño y habitaciones. Compare cómo cambia el precio estimado.</p></div>
-<div class="exercise-box"><div class="exercise-title">Ejercicio 2 — Evaluación de regresión</div><p>Ejecute varias divisiones de entrenamiento/prueba cambiando <code>random_state</code>. Observe si el RMSE cambia mucho. Esto ayuda a entender la sensibilidad del modelo cuando el dataset es pequeño.</p></div>
-<div class="exercise-box"><div class="exercise-title">Ejercicio 3 — Clasificación logística</div><p>En el modelo de cáncer de mama, imprima las primeras cinco probabilidades con <code>predict_proba</code> y compárelas con las clases finales generadas por <code>predict</code>.</p></div>
-<div class="exercise-box"><div class="exercise-title">Ejercicio 4 — Regularización</div><p>Pruebe valores de <code>C</code> como <code>0.001</code>, <code>0.01</code>, <code>1</code> y <code>100</code>. Observe si el accuracy mejora, empeora o permanece similar.</p></div>
+
+<div class="exercise-box"><div class="exercise-title">Ejercicio 1 — Regresión lineal múltiple</div><p>Modifique el ejemplo de housing prices para probar una predicción con diferentes valores de tamaño y habitaciones. Compare cómo cambia el precio estimado.</p>
+
+<!-- Inicio de respúesta sujerida para el ejericio 1 -->
+
+<button class="solution-toggle-btn blue" onclick="toggleSolution('solution-ejercicio-01', this)">
+  Mostrar respuesta sugerida
+</button>
+
+<div id="solution-ejercicio-01" class="exercise-solution">
+  <div class="code-block">
+    <div class="code-header">
+      <div class="dot d1"></div>
+      <div class="dot d2"></div>
+      <div class="dot d3"></div>
+      <span class="filename">respuesta_ejercicio_01_regresion_multiple.py</span>
+    </div>
+    <pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
+
+<span class="cm"># Dataset completo de housing prices usado en el proyecto</span>
+<span class="cm"># size_ft2 representa el tamaño de la vivienda en pies cuadrados</span>
+<span class="cm"># bedrooms representa el número de habitaciones</span>
+<span class="cm"># price representa el precio de venta de la vivienda</span>
+<span class="var">data</span> = {
+    <span class="str">"size_ft2"</span>: [
+        <span class="num">2104</span>, <span class="num">1600</span>, <span class="num">2400</span>, <span class="num">1416</span>, <span class="num">3000</span>, <span class="num">1985</span>, <span class="num">1534</span>, <span class="num">1427</span>,
+        <span class="num">1380</span>, <span class="num">1494</span>, <span class="num">1940</span>, <span class="num">2000</span>, <span class="num">1890</span>, <span class="num">4478</span>, <span class="num">1268</span>, <span class="num">2300</span>,
+        <span class="num">1320</span>, <span class="num">1236</span>, <span class="num">2609</span>, <span class="num">3031</span>, <span class="num">1767</span>, <span class="num">1888</span>, <span class="num">1604</span>, <span class="num">1962</span>,
+        <span class="num">3890</span>, <span class="num">1100</span>, <span class="num">1458</span>, <span class="num">2526</span>, <span class="num">2200</span>, <span class="num">2637</span>, <span class="num">1839</span>, <span class="num">1000</span>,
+        <span class="num">2040</span>, <span class="num">3137</span>, <span class="num">1811</span>, <span class="num">1437</span>, <span class="num">1239</span>, <span class="num">2132</span>, <span class="num">4215</span>, <span class="num">2162</span>,
+        <span class="num">1664</span>, <span class="num">2238</span>, <span class="num">2567</span>, <span class="num">1200</span>, <span class="num">852</span>, <span class="num">1852</span>, <span class="num">1203</span>
+    ],
+    <span class="str">"bedrooms"</span>: [
+        <span class="num">3</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">2</span>, <span class="num">4</span>, <span class="num">4</span>, <span class="num">3</span>, <span class="num">3</span>,
+        <span class="num">3</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">5</span>, <span class="num">3</span>, <span class="num">4</span>,
+        <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">4</span>, <span class="num">3</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>,
+        <span class="num">3</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">2</span>, <span class="num">1</span>,
+        <span class="num">4</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">4</span>, <span class="num">4</span>,
+        <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">3</span>, <span class="num">2</span>, <span class="num">4</span>, <span class="num">3</span>
+    ],
+    <span class="str">"price"</span>: [
+        <span class="num">399900</span>, <span class="num">329900</span>, <span class="num">369000</span>, <span class="num">232000</span>, <span class="num">539900</span>, <span class="num">299900</span>, <span class="num">314900</span>, <span class="num">198999</span>,
+        <span class="num">212000</span>, <span class="num">242500</span>, <span class="num">239999</span>, <span class="num">347000</span>, <span class="num">329999</span>, <span class="num">699900</span>, <span class="num">259900</span>, <span class="num">449900</span>,
+        <span class="num">299900</span>, <span class="num">199900</span>, <span class="num">499998</span>, <span class="num">599000</span>, <span class="num">252900</span>, <span class="num">255000</span>, <span class="num">242900</span>, <span class="num">259900</span>,
+        <span class="num">573900</span>, <span class="num">249900</span>, <span class="num">464500</span>, <span class="num">469000</span>, <span class="num">475000</span>, <span class="num">299900</span>, <span class="num">349900</span>, <span class="num">169900</span>,
+        <span class="num">314900</span>, <span class="num">579900</span>, <span class="num">285900</span>, <span class="num">249900</span>, <span class="num">229900</span>, <span class="num">345000</span>, <span class="num">549000</span>, <span class="num">287000</span>,
+        <span class="num">368500</span>, <span class="num">329900</span>, <span class="num">314000</span>, <span class="num">299000</span>, <span class="num">179900</span>, <span class="num">299900</span>, <span class="num">239500</span>
+    ]
+}
+
+<span class="cm"># Crear el DataFrame</span>
+<span class="var">df</span> = pd.<span class="fn">DataFrame</span>(data)
+
+<span class="cm"># Seleccionar las características de entrada</span>
+<span class="var">X</span> = df[[<span class="str">"size_ft2"</span>, <span class="str">"bedrooms"</span>]]
+
+<span class="cm"># Seleccionar la variable objetivo</span>
+<span class="var">y</span> = df[<span class="str">"price"</span>]
+
+<span class="cm"># Crear y entrenar el modelo de regresión lineal múltiple</span>
+<span class="var">model</span> = <span class="fn">LinearRegression</span>()
+model.<span class="fn">fit</span>(X, y)
+
+<span class="cm"># Crear diferentes casos de viviendas para comparar predicciones</span>
+<span class="var">new_houses</span> = pd.<span class="fn">DataFrame</span>({
+    <span class="str">"size_ft2"</span>: [<span class="num">1500</span>, <span class="num">1500</span>, <span class="num">2200</span>, <span class="num">2200</span>, <span class="num">3000</span>],
+    <span class="str">"bedrooms"</span>: [<span class="num">2</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">4</span>]
+})
+
+<span class="cm"># Generar predicciones para cada caso</span>
+<span class="var">predictions</span> = model.<span class="fn">predict</span>(new_houses)
+
+<span class="cm"># Agregar las predicciones al DataFrame de comparación</span>
+new_houses[<span class="str">"estimated_price"</span>] = predictions
+
+<span class="cm"># Mostrar los coeficientes del modelo</span>
+<span class="fn">print</span>(<span class="str">"Intercepto:"</span>, model.intercept_)
+<span class="fn">print</span>(<span class="str">"Coeficientes:"</span>, model.coef_)
+
+<span class="cm"># Mostrar la comparación de precios estimados</span>
+<span class="fn">print</span>(new_houses)</pre>
+  </div>
+</div>
+
+</div>
+
+<div class="exercise-box"><div class="exercise-title">Ejercicio 2 — Evaluación de regresión</div><p>Ejecute varias divisiones de entrenamiento/prueba cambiando <code>random_state</code>. Observe si el RMSE cambia mucho. Esto ayuda a entender la sensibilidad del modelo cuando el dataset es pequeño.</p>
+
+<!-- Inicio de respúesta sujerida para el ejericio 2 -->
+
+<button class="solution-toggle-btn orange" onclick="toggleSolution('solution-ejercicio-02', this)">
+  Mostrar respuesta sugerida
+</button>
+
+<div id="solution-ejercicio-02" class="exercise-solution">
+  <div class="code-block">
+    <div class="code-header">
+      <div class="dot d1"></div>
+      <div class="dot d2"></div>
+      <div class="dot d3"></div>
+      <span class="filename">respuesta_ejercicio_02_evaluacion_regresion.py</span>
+    </div>
+    <pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> mean_squared_error, r2_score
+
+<span class="cm"># Dataset completo de housing prices</span>
+<span class="var">data</span> = {
+    <span class="str">"size_ft2"</span>: [
+        <span class="num">2104</span>, <span class="num">1600</span>, <span class="num">2400</span>, <span class="num">1416</span>, <span class="num">3000</span>, <span class="num">1985</span>, <span class="num">1534</span>, <span class="num">1427</span>,
+        <span class="num">1380</span>, <span class="num">1494</span>, <span class="num">1940</span>, <span class="num">2000</span>, <span class="num">1890</span>, <span class="num">4478</span>, <span class="num">1268</span>, <span class="num">2300</span>,
+        <span class="num">1320</span>, <span class="num">1236</span>, <span class="num">2609</span>, <span class="num">3031</span>, <span class="num">1767</span>, <span class="num">1888</span>, <span class="num">1604</span>, <span class="num">1962</span>,
+        <span class="num">3890</span>, <span class="num">1100</span>, <span class="num">1458</span>, <span class="num">2526</span>, <span class="num">2200</span>, <span class="num">2637</span>, <span class="num">1839</span>, <span class="num">1000</span>,
+        <span class="num">2040</span>, <span class="num">3137</span>, <span class="num">1811</span>, <span class="num">1437</span>, <span class="num">1239</span>, <span class="num">2132</span>, <span class="num">4215</span>, <span class="num">2162</span>,
+        <span class="num">1664</span>, <span class="num">2238</span>, <span class="num">2567</span>, <span class="num">1200</span>, <span class="num">852</span>, <span class="num">1852</span>, <span class="num">1203</span>
+    ],
+    <span class="str">"bedrooms"</span>: [
+        <span class="num">3</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">2</span>, <span class="num">4</span>, <span class="num">4</span>, <span class="num">3</span>, <span class="num">3</span>,
+        <span class="num">3</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">5</span>, <span class="num">3</span>, <span class="num">4</span>,
+        <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">4</span>, <span class="num">3</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>,
+        <span class="num">3</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">2</span>, <span class="num">1</span>,
+        <span class="num">4</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">3</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">4</span>, <span class="num">4</span>,
+        <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">3</span>, <span class="num">2</span>, <span class="num">4</span>, <span class="num">3</span>
+    ],
+    <span class="str">"price"</span>: [
+        <span class="num">399900</span>, <span class="num">329900</span>, <span class="num">369000</span>, <span class="num">232000</span>, <span class="num">539900</span>, <span class="num">299900</span>, <span class="num">314900</span>, <span class="num">198999</span>,
+        <span class="num">212000</span>, <span class="num">242500</span>, <span class="num">239999</span>, <span class="num">347000</span>, <span class="num">329999</span>, <span class="num">699900</span>, <span class="num">259900</span>, <span class="num">449900</span>,
+        <span class="num">299900</span>, <span class="num">199900</span>, <span class="num">499998</span>, <span class="num">599000</span>, <span class="num">252900</span>, <span class="num">255000</span>, <span class="num">242900</span>, <span class="num">259900</span>,
+        <span class="num">573900</span>, <span class="num">249900</span>, <span class="num">464500</span>, <span class="num">469000</span>, <span class="num">475000</span>, <span class="num">299900</span>, <span class="num">349900</span>, <span class="num">169900</span>,
+        <span class="num">314900</span>, <span class="num">579900</span>, <span class="num">285900</span>, <span class="num">249900</span>, <span class="num">229900</span>, <span class="num">345000</span>, <span class="num">549000</span>, <span class="num">287000</span>,
+        <span class="num">368500</span>, <span class="num">329900</span>, <span class="num">314000</span>, <span class="num">299000</span>, <span class="num">179900</span>, <span class="num">299900</span>, <span class="num">239500</span>
+    ]
+}
+
+<span class="cm"># Crear el DataFrame</span>
+<span class="var">df</span> = pd.<span class="fn">DataFrame</span>(data)
+
+<span class="cm"># Seleccionar características y variable objetivo</span>
+<span class="var">X</span> = df[[<span class="str">"size_ft2"</span>, <span class="str">"bedrooms"</span>]]
+<span class="var">y</span> = df[<span class="str">"price"</span>]
+
+<span class="cm"># Lista para guardar los resultados de cada división</span>
+<span class="var">results</span> = []
+
+<span class="cm"># Probar diferentes valores de random_state</span>
+<span class="kw">for</span> state <span class="kw">in</span> [<span class="num">0</span>, <span class="num">1</span>, <span class="num">2</span>, <span class="num">10</span>, <span class="num">21</span>, <span class="num">42</span>, <span class="num">100</span>]:
+    <span class="cm"># Dividir los datos en entrenamiento y prueba</span>
+    <span class="var">X_train</span>, <span class="var">X_test</span>, <span class="var">y_train</span>, <span class="var">y_test</span> = <span class="fn">train_test_split</span>(
+        X, y, test_size=<span class="num">0.2</span>, random_state=state
+    )
+
+    <span class="cm"># Crear y entrenar el modelo</span>
+    <span class="var">model</span> = <span class="fn">LinearRegression</span>()
+    model.<span class="fn">fit</span>(X_train, y_train)
+
+    <span class="cm"># Generar predicciones con el conjunto de prueba</span>
+    <span class="var">y_pred</span> = model.<span class="fn">predict</span>(X_test)
+
+    <span class="cm"># Calcular RMSE y R²</span>
+    <span class="var">mse</span> = <span class="fn">mean_squared_error</span>(y_test, y_pred)
+    <span class="var">rmse</span> = np.<span class="fn">sqrt</span>(mse)
+    <span class="var">r2</span> = <span class="fn">r2_score</span>(y_test, y_pred)
+
+    <span class="cm"># Guardar los resultados</span>
+    results.<span class="fn">append</span>({
+        <span class="str">"random_state"</span>: state,
+        <span class="str">"RMSE"</span>: rmse,
+        <span class="str">"R2"</span>: r2
+    })
+
+<span class="cm"># Convertir resultados a DataFrame para verlos como tabla</span>
+<span class="var">results_df</span> = pd.<span class="fn">DataFrame</span>(results)
+
+<span class="cm"># Mostrar resultados</span>
+<span class="fn">print</span>(results_df)
+
+<span class="cm"># Mostrar una conclusión básica</span>
+<span class="fn">print</span>(<span class="str">"\nRMSE mínimo:"</span>, results_df[<span class="str">"RMSE"</span>].<span class="fn">min</span>())
+<span class="fn">print</span>(<span class="str">"RMSE máximo:"</span>, results_df[<span class="str">"RMSE"</span>].<span class="fn">max</span>())
+<span class="fn">print</span>(<span class="str">"Diferencia:"</span>, results_df[<span class="str">"RMSE"</span>].<span class="fn">max</span>() - results_df[<span class="str">"RMSE"</span>].<span class="fn">min</span>())</pre>
+  </div>
+</div>
+
+</div>
+
+<div class="exercise-box"><div class="exercise-title">Ejercicio 3 — Clasificación logística</div><p>En el modelo de cáncer de mama, imprima las primeras cinco probabilidades con <code>predict_proba</code> y compárelas con las clases finales generadas por <code>predict</code>.</p>
+
+<!-- Inicio de respúesta sujerida para el ejericio 3 -->
+
+<button class="solution-toggle-btn green" onclick="toggleSolution('solution-ejercicio-03', this)">
+  Mostrar respuesta sugerida
+</button>
+
+<div id="solution-ejercicio-03" class="exercise-solution">
+  <div class="code-block">
+    <div class="code-header">
+      <div class="dot d1"></div>
+      <div class="dot d2"></div>
+      <div class="dot d3"></div>
+      <span class="filename">respuesta_ejercicio_03_predict_proba.py</span>
+    </div>
+    <pre><span class="kw">from</span> sklearn.datasets <span class="kw">import</span> load_breast_cancer
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LogisticRegression
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> StandardScaler
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cm"># Cargar el dataset de cáncer de mama incluido en scikit-learn</span>
+<span class="var">data</span> = <span class="fn">load_breast_cancer</span>()
+
+<span class="cm"># X contiene las características médicas de cada muestra</span>
+<span class="var">X</span> = data.data
+
+<span class="cm"># y contiene la clase real de cada muestra</span>
+<span class="cm"># En este dataset, las clases son malignant y benign</span>
+<span class="var">y</span> = data.target
+
+<span class="cm"># Dividir los datos en entrenamiento y prueba</span>
+<span class="var">X_train</span>, <span class="var">X_test</span>, <span class="var">y_train</span>, <span class="var">y_test</span> = <span class="fn">train_test_split</span>(
+    X, y, test_size=<span class="num">0.2</span>, random_state=<span class="num">42</span>, stratify=y
+)
+
+<span class="cm"># Escalar los datos para que todas las características tengan una escala comparable</span>
+<span class="var">scaler</span> = <span class="fn">StandardScaler</span>()
+<span class="var">X_train_scaled</span> = scaler.<span class="fn">fit_transform</span>(X_train)
+<span class="var">X_test_scaled</span> = scaler.<span class="fn">transform</span>(X_test)
+
+<span class="cm"># Crear y entrenar el modelo de regresión logística</span>
+<span class="var">model</span> = <span class="fn">LogisticRegression</span>(max_iter=<span class="num">1000</span>, random_state=<span class="num">42</span>)
+model.<span class="fn">fit</span>(X_train_scaled, y_train)
+
+<span class="cm"># predict_proba devuelve la probabilidad de pertenecer a cada clase</span>
+<span class="var">probabilities</span> = model.<span class="fn">predict_proba</span>(X_test_scaled)
+
+<span class="cm"># predict devuelve la clase final seleccionada por el modelo</span>
+<span class="var">final_classes</span> = model.<span class="fn">predict</span>(X_test_scaled)
+
+<span class="cm"># Crear una tabla con las primeras cinco probabilidades y clases predichas</span>
+<span class="var">comparison</span> = pd.<span class="fn">DataFrame</span>({
+    <span class="str">"P(clase 0)"</span>: probabilities[:<span class="num">5</span>, <span class="num">0</span>],
+    <span class="str">"P(clase 1)"</span>: probabilities[:<span class="num">5</span>, <span class="num">1</span>],
+    <span class="str">"Clase predicha"</span>: final_classes[:<span class="num">5</span>],
+    <span class="str">"Etiqueta real"</span>: y_test[:<span class="num">5</span>]
+})
+
+<span class="cm"># Agregar el nombre textual de la clase predicha</span>
+comparison[<span class="str">"Nombre clase predicha"</span>] = [
+    data.target_names[class_id] <span class="kw">for</span> class_id <span class="kw">in</span> final_classes[:<span class="num">5</span>]
+]
+
+<span class="cm"># Mostrar la comparación</span>
+<span class="fn">print</span>(comparison)</pre>
+  </div>
+</div>
+
+</div>
+
+<div class="exercise-box"><div class="exercise-title">Ejercicio 4 — Regularización</div><p>Pruebe valores de <code>C</code> como <code>0.001</code>, <code>0.01</code>, <code>1</code> y <code>100</code>. Observe si el accuracy mejora, empeora o permanece similar.</p>
+
+<!-- Inicio de respúesta sujerida para el ejericio 4 -->
+
+<button class="solution-toggle-btn red" onclick="toggleSolution('solution-ejercicio-04', this)">
+  Mostrar respuesta sugerida
+</button>
+
+<div id="solution-ejercicio-04" class="exercise-solution">
+  <div class="code-block">
+    <div class="code-header">
+      <div class="dot d1"></div>
+      <div class="dot d2"></div>
+      <div class="dot d3"></div>
+      <span class="filename">respuesta_ejercicio_04_regularizacion.py</span>
+    </div>
+    <pre><span class="kw">from</span> sklearn.datasets <span class="kw">import</span> load_breast_cancer
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LogisticRegression
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> StandardScaler
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> accuracy_score
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cm"># Cargar el dataset de cáncer de mama</span>
+<span class="var">data</span> = <span class="fn">load_breast_cancer</span>()
+<span class="var">X</span> = data.data
+<span class="var">y</span> = data.target
+
+<span class="cm"># Dividir los datos en entrenamiento y prueba</span>
+<span class="var">X_train</span>, <span class="var">X_test</span>, <span class="var">y_train</span>, <span class="var">y_test</span> = <span class="fn">train_test_split</span>(
+    X, y, test_size=<span class="num">0.2</span>, random_state=<span class="num">42</span>, stratify=y
+)
+
+<span class="cm"># Escalar los datos antes de entrenar el modelo</span>
+<span class="var">scaler</span> = <span class="fn">StandardScaler</span>()
+<span class="var">X_train_scaled</span> = scaler.<span class="fn">fit_transform</span>(X_train)
+<span class="var">X_test_scaled</span> = scaler.<span class="fn">transform</span>(X_test)
+
+<span class="cm"># Valores de C que se desean comparar</span>
+<span class="cm"># C pequeño significa regularización más fuerte</span>
+<span class="cm"># C grande significa regularización más débil</span>
+<span class="var">c_values</span> = [<span class="num">0.001</span>, <span class="num">0.01</span>, <span class="num">1</span>, <span class="num">100</span>]
+
+<span class="cm"># Lista para guardar resultados</span>
+<span class="var">results</span> = []
+
+<span class="cm"># Entrenar un modelo diferente para cada valor de C</span>
+<span class="kw">for</span> c <span class="kw">in</span> c_values:
+    <span class="cm"># Crear el modelo con el valor actual de C</span>
+    <span class="var">model</span> = <span class="fn">LogisticRegression</span>(
+        C=c,
+        max_iter=<span class="num">1000</span>,
+        random_state=<span class="num">42</span>
+    )
+
+    <span class="cm"># Entrenar el modelo</span>
+    model.<span class="fn">fit</span>(X_train_scaled, y_train)
+
+    <span class="cm"># Generar predicciones</span>
+    <span class="var">y_pred</span> = model.<span class="fn">predict</span>(X_test_scaled)
+
+    <span class="cm"># Calcular accuracy</span>
+    <span class="var">accuracy</span> = <span class="fn">accuracy_score</span>(y_test, y_pred)
+
+    <span class="cm"># Guardar el resultado</span>
+    results.<span class="fn">append</span>({
+        <span class="str">"C"</span>: c,
+        <span class="str">"Accuracy"</span>: accuracy
+    })
+
+<span class="cm"># Convertir resultados a tabla</span>
+<span class="var">results_df</span> = pd.<span class="fn">DataFrame</span>(results)
+
+<span class="cm"># Mostrar resultados</span>
+<span class="fn">print</span>(results_df)
+
+<span class="cm"># Mostrar el mejor resultado encontrado</span>
+<span class="var">best_result</span> = results_df.<span class="fn">sort_values</span>(by=<span class="str">"Accuracy"</span>, ascending=<span class="kw">False</span>).<span class="fn">iloc</span>[<span class="num">0</span>]
+
+<span class="fn">print</span>(<span class="str">"\nMejor configuración encontrada:"</span>)
+<span class="fn">print</span>(<span class="str">f"C = {best_result['C']}"</span>)
+<span class="fn">print</span>(<span class="str">f"Accuracy = {best_result['Accuracy']:.4f}"</span>)</pre>
+  </div>
+</div>
+
+</div>
+
 <h3 class="red">Cierre del taller</h3>
+
 <p>En este proyecto se construyó una ruta completa desde regresión lineal hasta regresión logística. Primero se estudió cómo un modelo aprende una relación numérica para predecir precios de vivienda. Después se mostró cómo transformar una combinación lineal en una probabilidad para resolver problemas de clasificación.</p>
 <p>El aprendizaje más importante es que entrenar un modelo no consiste únicamente en ejecutar código. Implica comprender los datos, elegir la métrica correcta, interpretar errores, validar con datos no vistos y explicar los resultados de forma clara.</p>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota del instructor</button><div class="instructor-note hidden"><strong>Nota para el instructor:</strong> Cierre conectando el contenido con aplicaciones reales: análisis de precios, predicción de demanda, scoring de clientes, detección de fraude y clasificación médica. Recuérdeles que el objetivo no es memorizar código, sino entender el flujo de trabajo.</div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Cierre conectando el contenido con aplicaciones reales: análisis de precios, predicción de demanda, scoring de clientes, detección de fraude y clasificación médica. Recuérdeles que el objetivo no es memorizar código, sino entender el flujo de trabajo.</div></div>
 </div></section>
 
 <footer>Python Institute · OpenEDG · Taller de Machine Learning con Python · Proyecto reconstruido en español latinoamericano</footer>
@@ -519,12 +968,25 @@ function toggleNote(button) {
   const isHidden = note.classList.contains('hidden');
   if (isHidden) {
     note.classList.remove('hidden');
-    button.textContent = 'Ocultar nota del instructor';
+    button.textContent = 'Ocultar nota para los participantes';
   } else {
     note.classList.add('hidden');
-    button.textContent = 'Mostrar nota del instructor';
+    button.textContent = 'Mostrar nota para los participantes';
   }
 }
+</script>
+<script>
+  function toggleSolution(solutionId, button) {
+    const solution = document.getElementById(solutionId);
+
+    if (solution.classList.contains("show")) {
+      solution.classList.remove("show");
+      button.textContent = "Mostrar respuesta sugerida";
+    } else {
+      solution.classList.add("show");
+      button.textContent = "Ocultar respuesta sugerida";
+    }
+  }
 </script>
 </body>
 </html>
