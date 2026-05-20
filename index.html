@@ -250,10 +250,19 @@ print(df.describe())</code></pre></div>
 <div class="formula-block"><div class="formula">h<sub>θ</sub>(x) = θ₀ + θ₁x</div><div class="formula-label">Hipótesis de regresión lineal simple</div></div>
 <ul class="content-list"><li><strong>θ₀</strong> es el intercepto. Representa el punto inicial de la línea.</li><li><strong>θ₁</strong> es la pendiente. Representa cuánto cambia la predicción cuando x aumenta una unidad.</li><li><strong>x</strong> es la característica de entrada; por ejemplo, el tamaño de la vivienda.</li></ul>
 <p>En el contexto de viviendas, si usamos el tamaño en ft² como entrada, la pendiente indica cuánto aumenta el precio estimado por cada pie cuadrado adicional.</p>
-<div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>03_hipotesis_simple.py</strong></div><pre><code># Ejemplo breve: calcular una predicción con una línea recta.
+
+<div class="code-block">
+  <div class="code-header">
+    <span></span><span></span><span></span>
+    <strong>03_hipotesis_simple.py</strong>
+  </div>
+  <pre><code># Ejemplo breve: calcular y visualizar una predicción con una línea recta.
 # h(x) = θ0 + θ1*x
 # Supongamos que θ0 = 50000 y θ1 = 150.
 # Esto significa: precio base de 50,000 + 150 dólares por cada ft².
+
+import numpy as np
+import matplotlib.pyplot as plt
 
 theta0 = 50000      # Intercepto: valor base estimado de la casa
 theta1 = 150        # Pendiente: aumento estimado por cada pie cuadrado
@@ -261,8 +270,67 @@ size = 1650         # Tamaño de la vivienda que queremos estimar
 
 prediction = theta0 + theta1 * size
 
-print(&quot;Precio estimado:&quot;, prediction)</code></pre></div>
-<p>Este ejemplo no entrena un modelo; solo muestra cómo se calcula una predicción cuando ya tenemos valores para θ₀ y θ₁. El entrenamiento consiste precisamente en encontrar buenos valores para esos parámetros.</p>
+print(&quot;Precio estimado:&quot;, prediction)
+
+# Generamos varios tamaños de vivienda para dibujar la línea de hipótesis.
+sizes = np.array([800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400])
+
+# Calculamos la predicción para cada tamaño usando la misma hipótesis.
+predicted_prices = theta0 + theta1 * sizes
+
+# Creamos la gráfica.
+plt.figure(figsize=(9, 5))
+
+# Dibujamos la línea de hipótesis.
+plt.plot(
+    sizes,
+    predicted_prices,
+    marker=&quot;o&quot;,
+    label=&quot;Hipótesis: h(x) = 50000 + 150x&quot;
+)
+
+# Marcamos la vivienda específica que queremos estimar.
+plt.scatter(
+    size,
+    prediction,
+    s=120,
+    label=&quot;Predicción para 1650 ft²&quot;
+)
+
+# Agregamos una anotación para destacar el punto estimado.
+plt.annotate(
+    f&quot;1650 ft² → ${prediction:,.0f}&quot;,
+    xy=(size, prediction),
+    xytext=(size + 80, prediction - 35000),
+    arrowprops=dict(arrowstyle=&quot;->&quot;)
+)
+
+# Personalizamos la gráfica.
+plt.title(&quot;Hipótesis de regresión lineal simple&quot;)
+plt.xlabel(&quot;Tamaño de la vivienda (ft²)&quot;)
+plt.ylabel(&quot;Precio estimado (USD)&quot;)
+plt.grid(True)
+plt.legend()
+
+# Mostramos la gráfica.
+plt.show()</code></pre>
+</div>
+
+<p>Este ejemplo no entrena un modelo; solo muestra cómo se calcula una predicción cuando ya tenemos valores para <strong>θ₀</strong> y <strong>θ₁</strong>. El entrenamiento consiste precisamente en encontrar buenos valores para esos parámetros.</p>
+
+<div class="highlight-box">
+  <p><strong>Explicación de la gráfica:</strong> la línea representa la hipótesis de regresión lineal simple. Cada punto sobre la línea muestra el precio estimado para un tamaño de vivienda distinto. En este caso, usamos la fórmula <code>h(x) = 50000 + 150x</code>, donde <code>50000</code> es el valor base o intercepto, y <code>150</code> indica que el precio estimado aumenta 150 dólares por cada pie cuadrado adicional.</p>
+
+  <p>El punto resaltado corresponde a una vivienda de <code>1650 ft²</code>. Al sustituir ese valor en la función, el modelo calcula:</p>
+
+  <div class="formula-block">
+    <div class="formula">h(1650) = 50000 + 150(1650) = 297500</div>
+    <div class="formula-label">Predicción para una vivienda de 1650 ft²</div>
+  </div>
+
+  <p>Visualmente, esto ayuda a comprender que la hipótesis no es solo una fórmula aislada: es una línea que asigna una predicción a cada posible valor de entrada. Si el tamaño de la vivienda aumenta, el precio estimado también aumenta de forma constante porque la pendiente es positiva.</p>
+</div>
+
 <div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Reflexionen sobre la función de hipótesis en regresión lineal. Expliquen por qué una hipótesis como h(x) = θ₀ + θ₁x no es “inteligente” por sí sola al inicio. Después, comenten cómo el modelo comienza a aprender cuando ajusta los valores de θ₀ y θ₁ usando los datos del dataset.</div></div>
 </div></section>
 
