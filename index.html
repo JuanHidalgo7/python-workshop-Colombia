@@ -331,7 +331,19 @@ plt.show()</code></pre>
   <p>Visualmente, esto ayuda a comprender que la hipótesis no es solo una fórmula aislada: es una línea que asigna una predicción a cada posible valor de entrada. Si el tamaño de la vivienda aumenta, el precio estimado también aumenta de forma constante porque la pendiente es positiva.</p>
 </div>
 
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Reflexionen sobre la función de hipótesis en regresión lineal. Expliquen por qué una hipótesis como h(x) = θ₀ + θ₁x no es “inteligente” por sí sola al inicio. Después, comenten cómo el modelo comienza a aprender cuando ajusta los valores de θ₀ y θ₁ usando los datos del dataset.</div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Reflexionen sobre la función de hipótesis en regresión lineal. Expliquen por qué una hipótesis como h(x) = θ₀ + θ₁x no es “inteligente” por sí sola al inicio. Después, comenten cómo el modelo comienza a aprender cuando ajusta los valores de θ₀ y θ₁ usando los datos del dataset.
+<p><p></p>
+  Una hipótesis como <code>h(x) = θ₀ + θ₁x</code> no es “inteligente” por sí sola al inicio porque solamente es una fórmula matemática con parámetros todavía no ajustados. Al principio, los valores de <code>θ₀</code> y <code>θ₁</code> pueden ser arbitrarios, aproximados o incluso incorrectos, por lo que la función todavía no ha aprendido realmente la relación entre los datos de entrada y el resultado esperado.
+</p>
+<p><p></p>
+  La inteligencia del modelo no está en escribir la fórmula, sino en el proceso de entrenamiento. Durante el entrenamiento, el modelo compara sus predicciones con los valores reales, mide el error y ajusta los parámetros para reducir ese error. Solo después de este proceso la hipótesis comienza a representar mejor el comportamiento de los datos.
+</p>
+
+<p><p></p>
+  En otras palabras, la hipótesis es como una regla vacía al inicio: tiene una estructura, pero todavía no sabe qué valores son adecuados. Se vuelve útil cuando aprende, a partir de los datos, cuáles valores de <code>θ₀</code> y <code>θ₁</code> producen predicciones más cercanas a la realidad.
+</p>
+
+</div></div>
 </div></section>
 
 <section class="section" id="s4"><div class="container"><div class="section-label orange">Sección 04</div><h2>Función de costo: medir qué tan mal predice el modelo</h2>
