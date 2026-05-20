@@ -445,11 +445,18 @@ new_size_norm = (new_size - x_mean) / x_std
 predicted_price = theta0 + theta1 * new_size_norm
 print(&quot;Precio estimado para 1650 ft²:&quot;, predicted_price)</code></pre></div>
 <div class="exercise-box"><div class="exercise-title">Ejercicio breve</div><p>Ejecute el código cambiando <code>alpha</code> a <code>0.001</code>, <code>0.01</code> y <code>0.1</code>. Observe cómo cambia el costo final. El objetivo es identificar cuándo el aprendizaje es lento y cuándo empieza a ser inestable.</p></div>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Observen el ciclo <code>for</code> como una serie de pequeñas correcciones que el modelo realiza paso a paso. En cada iteración, el modelo revisa qué tan lejos están sus predicciones de los valores reales y ajusta ligeramente sus parámetros para reducir el error. <p>Piensen en el <strong>gradiente</strong> como una brújula: no es solo una fórmula matemática, sino una señal que le indica al modelo hacia dónde debe moverse para bajar el error. Si el modelo está muy alejado de una buena predicción, el gradiente le ayuda a corregir el rumbo; si ya está cerca, los cambios se vuelven más pequeños hasta acercarse al mejor ajuste posible.</p></div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Observen el ciclo <code>for</code> como una serie de pequeñas correcciones que el modelo realiza paso a paso. En cada iteración, el modelo revisa qué tan lejos están sus predicciones de los valores reales y ajusta ligeramente sus parámetros para reducir el error. 
+  
+<p><p></p>
+  Piensen en el <strong>gradiente</strong> como una brújula: no es solo una fórmula matemática, sino una señal que le indica al modelo hacia dónde debe moverse para bajar el error. Si el modelo está muy alejado de una buena predicción, el gradiente le ayuda a corregir el rumbo; si ya está cerca, los cambios se vuelven más pequeños hasta acercarse al mejor ajuste posible.
+</p>
+
+</div></div>
 </div></section>
 
 <section class="section" id="s6"><div class="container"><div class="section-label">Sección 06</div><h2>Regresión lineal múltiple con scikit-learn</h2>
 <p>En proyectos reales no entrenamos modelos solamente desde cero. Bibliotecas como <strong>scikit-learn</strong> implementan algoritmos optimizados, confiables y fáciles de integrar en flujos de análisis de datos.</p>
+<p><strong>Scikit-learn</strong> (también conocido como sklearn) es la librería de código abierto estándar para el aprendizaje automático en Python. Proporciona herramientas simples y eficientes para el análisis predictivo de datos. Está construida sobre el ecosistema científico de Python: NumPy, SciPy y Matplotlib.</p>
 <p>En este ejemplo usaremos las dos características del dataset completo: tamaño de la vivienda y número de habitaciones. Esto convierte el problema en una <strong>regresión lineal múltiple</strong>.</p>
 <div class="formula-block"><div class="formula">h<sub>θ</sub>(x) = θ₀ + θ₁x₁ + θ₂x₂</div><div class="formula-label">Regresión lineal con dos características</div></div>
 
@@ -508,7 +515,14 @@ new_price = model.predict(new_house_scaled)
 
 print(&quot;Precio estimado para casa nueva:&quot;, new_price[0])</code></pre></div>
 <p>Después del entrenamiento, el modelo genera un intercepto y dos coeficientes: uno asociado al tamaño de la vivienda y otro asociado al número de habitaciones. Estos coeficientes indican cómo contribuye cada variable a la predicción, considerando que los datos fueron escalados.</p>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen por qué los coeficientes de un modelo no siempre se interpretan de la misma manera cuando los datos han sido escalados. Cuando usamos <code>StandardScaler</code>, las características dejan de estar expresadas en sus unidades originales, como pies cuadrados o número de habitaciones, y pasan a representarse en términos de desviaciones estándar. <p> Por esta razón, un coeficiente ya no significa “cuánto cambia el precio por cada unidad adicional de la característica”. En su lugar, significa cuánto cambia la predicción cuando esa característica aumenta una desviación estándar, manteniendo las demás características constantes. Por ejemplo, si la característica <code>size_ft2</code> fue escalada con <code>StandardScaler</code>, su coeficiente no debe interpretarse como el cambio en el precio por cada pie cuadrado adicional. Debe interpretarse como el cambio estimado en el precio cuando el tamaño de la vivienda aumenta una desviación estándar respecto al promedio del dataset.</p></div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button>
+  
+<div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen por qué los coeficientes de un modelo no siempre se interpretan de la misma manera cuando los datos han sido escalados. Cuando usamos <code>StandardScaler</code>, las características dejan de estar expresadas en sus unidades originales, como pies cuadrados o número de habitaciones, y pasan a representarse en términos de desviaciones estándar. 
+<p><p></p>
+  Por esta razón, un coeficiente ya no significa “cuánto cambia el precio por cada unidad adicional de la característica”. En su lugar, significa cuánto cambia la predicción cuando esa característica aumenta una desviación estándar, manteniendo las demás características constantes. Por ejemplo, si la característica <code>size_ft2</code> fue escalada con <code>StandardScaler</code>, su coeficiente no debe interpretarse como el cambio en el precio por cada pie cuadrado adicional. Debe interpretarse como el cambio estimado en el precio cuando el tamaño de la vivienda aumenta una desviación estándar respecto al promedio del dataset.
+</p>
+
+</div></div>
 </div></section>
 
 <section class="section" id="s7"><div class="container"><div class="section-label red">Sección 07</div><h2>Evaluación de regresión: ¿qué tan bueno es el modelo?</h2>
@@ -544,9 +558,14 @@ plt.show()</code></pre></div>
 <div class="callout"><strong>Lectura del gráfico:</strong> si los puntos se agrupan cerca de la línea diagonal, el modelo predice bien. Si se alejan mucho, el modelo comete errores grandes.</div>
 <div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen por qué no es recomendable evaluar un modelo usando una sola métrica. Aunque un modelo tenga un valor de <strong>R²</strong> aceptable, eso no significa necesariamente que sus predicciones sean buenas en todos los casos.</p>
 
-<p>Recuerden que el <strong>R²</strong> indica qué proporción de la variabilidad de los datos puede explicar el modelo, pero no muestra directamente en qué casos específicos el modelo se equivoca más. Por ejemplo, un modelo podría funcionar bien para viviendas de precio medio, pero cometer errores grandes al predecir viviendas muy económicas o muy costosas.</p>
+<p><p></p>
+  Recuerden que el <strong>R²</strong> indica qué proporción de la variabilidad de los datos puede explicar el modelo, pero no muestra directamente en qué casos específicos el modelo se equivoca más. Por ejemplo, un modelo podría funcionar bien para viviendas de precio medio, pero cometer errores grandes al predecir viviendas muy económicas o muy costosas.
+</p>
 
-<p>Por eso, además de revisar el <strong>R²</strong>, también conviene analizar métricas como el <strong>MAE</strong>, el <strong>MSE</strong> o el <strong>RMSE</strong>, y observar gráficamente la diferencia entre los valores reales y los valores predichos. De esta manera, podemos tener una visión más completa del desempeño del modelo.</p></div></div>
+<p><p></p>
+  Por eso, además de revisar el <strong>R²</strong>, también conviene analizar métricas como el <strong>MAE</strong>, el <strong>MSE</strong> o el <strong>RMSE</strong>, y observar gráficamente la diferencia entre los valores reales y los valores predichos. De esta manera, podemos tener una visión más completa del desempeño del modelo.
+</p>
+</div></div>
 </div></section>
 
 <div class="part-divider container"><span class="part-label" style="color:var(--accent2); border-color:#6b3510;">Parte II — Regresión logística</span></div>
@@ -558,37 +577,175 @@ plt.show()</code></pre></div>
 <div class="highlight-box"><p><strong>Ejemplo:</strong> si el modelo devuelve 0.82 para un correo, podemos interpretarlo como 82% de probabilidad de que pertenezca a la clase positiva, por ejemplo, spam.</p></div>
 <div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen una confusión común sobre la <strong>regresión logística</strong>. Aunque su nombre incluye la palabra “regresión”, este algoritmo no se utiliza para predecir cantidades continuas como precios, salarios, temperaturas o ventas.</p>
 
-<p>La regresión logística se utiliza principalmente para resolver problemas de <strong>clasificación</strong>. Es decir, ayuda a decidir si un ejemplo pertenece o no a una determinada clase. Por ejemplo: si un correo es spam o no es spam, si una transacción es fraudulenta o legítima, o si una vivienda pertenece a una categoría de precio alto o bajo.</p>
+<p><p></p>
+  La regresión logística se utiliza principalmente para resolver problemas de <strong>clasificación</strong>. Es decir, ayuda a decidir si un ejemplo pertenece o no a una determinada clase. Por ejemplo: si un correo es spam o no es spam, si una transacción es fraudulenta o legítima, o si una vivienda pertenece a una categoría de precio alto o bajo.
+</p>
 
-<p>El modelo primero calcula una <strong>probabilidad</strong>, normalmente un valor entre <code>0</code> y <code>1</code>. Después, esa probabilidad se convierte en una clase usando un umbral de decisión. Por ejemplo, si el modelo calcula una probabilidad de <code>0.82</code> y el umbral es <code>0.5</code>, el resultado se clasifica como clase positiva, es decir, <code>1</code>.</p>
+<p><p></p>
+  El modelo primero calcula una <strong>probabilidad</strong>, normalmente un valor entre <code>0</code> y <code>1</code>. Después, esa probabilidad se convierte en una clase usando un umbral de decisión. Por ejemplo, si el modelo calcula una probabilidad de <code>0.82</code> y el umbral es <code>0.5</code>, el resultado se clasifica como clase positiva, es decir, <code>1</code>.
+</p>
 
-<p>En resumen, la regresión logística no responde directamente preguntas como “¿cuánto cuesta esta vivienda?”, sino preguntas como “¿esta vivienda pertenece a la categoría de precio alto?” o “¿este caso pertenece a la clase positiva?”.</p></div></div>
+<p><p></p>
+  En resumen, la regresión logística no responde directamente preguntas como “¿cuánto cuesta esta vivienda?”, sino preguntas como “¿esta vivienda pertenece a la categoría de precio alto?” o “¿este caso pertenece a la clase positiva?”.
+</p>
+</div></div>
 </div></section>
 
-<section class="section" id="s9"><div class="container"><div class="section-label orange">Sección 09</div><h2>Función sigmoide y frontera de decisión</h2>
-<p>La función sigmoide transforma cualquier número real en un valor entre 0 y 1. Por eso es útil para representar probabilidades.</p>
-<div class="formula-block"><div class="formula">σ(z) = 1 / (1 + e<sup>−z</sup>)</div><div class="formula-label">Función sigmoide</div></div>
-<p>Después de calcular una probabilidad, aplicamos un <strong>umbral de decisión</strong>. Normalmente usamos 0.5: si la probabilidad es mayor o igual a 0.5, predecimos clase 1; si es menor, predecimos clase 0.</p>
-<div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>09_sigmoide.py</strong></div><pre><code># Función sigmoide para transformar cualquier número real en una probabilidad.
+<section class="section" id="s9">
+  <div class="container">
+    <div class="section-label orange">Sección 09</div>
+    <h2>Función sigmoide y frontera de decisión</h2>
+
+    <p>
+      En regresión logística, el modelo no entrega directamente una clase como <code>0</code> o <code>1</code>. 
+      Primero calcula un valor numérico llamado <strong>z</strong>, que proviene de una combinación lineal de las variables de entrada.
+      Después, ese valor se transforma en una probabilidad usando la <strong>función sigmoide</strong>.
+    </p>
+
+    <div class="formula-block">
+      <div class="formula">z = θ₀ + θ₁x</div>
+      <div class="formula-label">Combinación lineal antes de aplicar la sigmoide</div>
+    </div>
+
+    <p>
+      El problema es que <code>z</code> puede tomar cualquier valor: puede ser negativo, cero o positivo. 
+      Por ejemplo, podría ser <code>-6</code>, <code>0</code>, <code>2</code> o <code>10</code>. 
+      Sin embargo, para clasificar necesitamos una salida más fácil de interpretar. Ahí es donde aparece la función sigmoide.
+    </p>
+
+    <div class="formula-block">
+      <div class="formula">σ(z) = 1 / (1 + e<sup>−z</sup>)</div>
+      <div class="formula-label">Función sigmoide</div>
+    </div>
+
+    <p>
+      La función sigmoide transforma cualquier número real en un valor entre <code>0</code> y <code>1</code>. 
+      Por eso es útil para representar probabilidades. Si el valor de <code>z</code> es muy negativo, la probabilidad se acerca a <code>0</code>. 
+      Si <code>z</code> es igual a <code>0</code>, la probabilidad es exactamente <code>0.5</code>. 
+      Si <code>z</code> es muy positivo, la probabilidad se acerca a <code>1</code>.
+    </p>
+
+    <div class="highlight-box">
+      <p>
+        <strong>Idea clave:</strong> la regresión logística primero calcula un valor lineal <code>z</code>, 
+        después usa la función sigmoide para convertir ese valor en una probabilidad, 
+        y finalmente transforma esa probabilidad en una clase usando un umbral de decisión.
+      </p>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <span></span><span></span><span></span>
+        <strong>09_sigmoide.py</strong>
+      </div>
+      <pre><code># Función sigmoide para transformar cualquier número real en una probabilidad.
 # Si z es muy grande, la probabilidad se acerca a 1.
 # Si z es muy pequeño o negativo, la probabilidad se acerca a 0.
+# Si z es igual a 0, la probabilidad es 0.5.
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 def sigmoid(z):
     # np.exp(-z) calcula e elevado a -z.
     return 1 / (1 + np.exp(-z))
 
+# Valores de ejemplo para observar cómo cambia la función sigmoide.
 values = np.array([-6, -2, 0, 2, 6])
 probabilities = sigmoid(values)
 
 for z, p in zip(values, probabilities):
-    print(f&quot;z = {z:&gt;2}  -&gt;  sigmoid(z) = {p:.4f}&quot;)</code></pre></div>
-<div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>09_clasificacion_simple.py</strong></div><pre><code># Ejemplo breve de clasificación binaria con una regla logística simple.
+    print(f&quot;z = {z:&gt;2}  -&gt;  sigmoid(z) = {p:.4f}&quot;)
+
+# Generamos más valores para dibujar una curva suave.
+z_values = np.linspace(-8, 8, 200)
+sigmoid_values = sigmoid(z_values)
+
+plt.figure(figsize=(9, 5))
+
+# Dibujamos la curva sigmoide.
+plt.plot(z_values, sigmoid_values, label=&quot;σ(z) = 1 / (1 + e^(-z))&quot;)
+
+# Línea horizontal del umbral común de decisión.
+plt.axhline(y=0.5, linestyle=&quot;--&quot;, label=&quot;Umbral = 0.5&quot;)
+
+# Línea vertical en z = 0.
+plt.axvline(x=0, linestyle=&quot;--&quot;, label=&quot;z = 0&quot;)
+
+# Marcamos los valores de ejemplo.
+plt.scatter(values, probabilities, s=80)
+
+plt.title(&quot;Función sigmoide&quot;)
+plt.xlabel(&quot;Valor de z&quot;)
+plt.ylabel(&quot;Probabilidad estimada&quot;)
+plt.grid(True)
+plt.legend()
+plt.show()</code></pre>
+    </div>
+
+    <p>
+      En este ejemplo, el arreglo <code>values</code> contiene diferentes valores de <code>z</code>. 
+      Al aplicar la función <code>sigmoid()</code>, cada valor se convierte en una probabilidad. 
+      Observa que los valores negativos producen probabilidades menores a <code>0.5</code>, 
+      mientras que los valores positivos producen probabilidades mayores a <code>0.5</code>.
+    </p>
+
+    <p>
+      La gráfica ayuda a visualizar este comportamiento. La curva tiene forma de “S”: 
+      al inicio se mantiene cerca de <code>0</code>, después crece rápidamente alrededor de <code>z = 0</code>, 
+      y finalmente se aproxima a <code>1</code>. Esto permite que el modelo exprese su salida como una probabilidad.
+    </p>
+
+    <h3 class="orange">Del valor z a una decisión de clasificación</h3>
+
+    <p>
+      Una vez que el modelo calcula una probabilidad, todavía necesitamos convertir esa probabilidad en una clase. 
+      Para hacerlo usamos un <strong>umbral de decisión</strong>. El umbral más común es <code>0.5</code>.
+    </p>
+
+    <ul class="content-list">
+      <li>Si la probabilidad es mayor o igual a <code>0.5</code>, el modelo predice la clase <code>1</code>.</li>
+      <li>Si la probabilidad es menor que <code>0.5</code>, el modelo predice la clase <code>0</code>.</li>
+      <li>La clase <code>1</code> suele representar el resultado positivo, como aprobar, comprar, responder sí o pertenecer a una categoría.</li>
+      <li>La clase <code>0</code> suele representar el resultado negativo, como no aprobar, no comprar, responder no o no pertenecer a una categoría.</li>
+    </ul>
+
+    <div class="formula-block">
+      <div class="formula">
+        si σ(z) ≥ 0.5 → clase 1<br>
+        si σ(z) &lt; 0.5 → clase 0
+      </div>
+      <div class="formula-label">Regla básica de clasificación</div>
+    </div>
+
+    <div class="callout">
+      <strong>Frontera de decisión:</strong> es el punto, línea o región donde el modelo cambia de una clase a otra. 
+      En un caso con una sola variable, la frontera puede ser un punto. En modelos con dos variables, puede visualizarse como una línea que separa dos regiones.
+    </div>
+
+    <h3 class="orange">Ejemplo: clasificar si un estudiante aprueba</h3>
+
+    <p>
+      Supongamos que queremos predecir si un estudiante aprueba un examen usando como entrada sus horas de estudio. 
+      En este ejemplo, la clase <code>1</code> significa <strong>aprueba</strong> y la clase <code>0</code> significa <strong>no aprueba</strong>.
+    </p>
+
+    <p>
+      Usaremos una regla logística simple con parámetros definidos manualmente. 
+      El objetivo no es entrenar todavía el modelo, sino entender cómo la combinación lineal, la sigmoide, la probabilidad y el umbral trabajan juntos.
+    </p>
+
+    <div class="code-block">
+      <div class="code-header">
+        <span></span><span></span><span></span>
+        <strong>09_clasificacion_simple.py</strong>
+      </div>
+      <pre><code># Ejemplo de clasificación binaria con una regla logística simple.
 # Queremos clasificar si un estudiante aprueba (1) o no aprueba (0)
 # usando como entrada las horas de estudio.
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
@@ -597,24 +754,134 @@ def sigmoid(z):
 theta0 = -4.0       # Intercepto: desplaza la curva hacia la izquierda o derecha
 theta1 = 1.2        # Pendiente: controla qué tan rápido cambia la probabilidad
 
+# Horas de estudio de diferentes estudiantes.
 hours = np.array([1, 2, 3, 4, 5, 6])
+
+# Primero calculamos el valor lineal z.
 z = theta0 + theta1 * hours
+
+# Después convertimos z en probabilidad con la función sigmoide.
 prob_pass = sigmoid(z)
 
 # Umbral de decisión: si la probabilidad es &gt;= 0.5, clasificamos como aprobado.
-predictions = (prob_pass &gt;= 0.5).astype(int)
+threshold = 0.5
+predictions = (prob_pass &gt;= threshold).astype(int)
 
-for h, p, pred in zip(hours, prob_pass, predictions):
-    print(f&quot;Horas: {h} | Probabilidad de aprobar: {p:.2f} | Clase: {pred}&quot;)</code></pre></div>
-<div class="callout"><strong>Frontera de decisión:</strong> es el punto o línea donde el modelo cambia de una clase a otra. En un caso simple, ocurre cuando la probabilidad llega a 0.5.</div>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen el significado de una <strong>probabilidad</strong> dentro de un modelo de clasificación. Una probabilidad no debe interpretarse como una certeza absoluta, sino como una estimación del nivel de confianza del modelo sobre un posible resultado.</p>
+for h, z_value, p, pred in zip(hours, z, prob_pass, predictions):
+    print(
+        f&quot;Horas: {h} | z = {z_value:.2f} | &quot;
+        f&quot;Probabilidad de aprobar: {p:.2f} | Clase: {pred}&quot;
+    )
 
-<p>Por ejemplo, supongamos que un modelo usa las <strong>horas de estudio</strong> de un estudiante para estimar si aprobará un examen. Si el modelo calcula una probabilidad de <code>0.70</code>, esto significa que, según los patrones aprendidos en los datos, el estudiante tiene un <strong>70% de probabilidad de aprobar</strong>.</p>
+# Calculamos la frontera de decisión.
+# La frontera ocurre cuando la probabilidad es 0.5.
+# En la sigmoide, σ(z) = 0.5 cuando z = 0.
+# Entonces:
+# 0 = theta0 + theta1*x
+# x = -theta0 / theta1
 
-<p>Sin embargo, eso no significa que aprobará con seguridad. Todavía existe un <strong>30% de probabilidad de reprobar</strong>. En otras palabras, un estudiante con una probabilidad de <code>0.70</code> podría aprobar, pero también podría reprobar.</p>
+decision_boundary = -theta0 / theta1
 
-<p>Por esta razón, en regresión logística debemos entender la salida del modelo como una <strong>probabilidad estimada</strong>, no como una garantía. Después, esa probabilidad se convierte en una clase usando un umbral de decisión, por ejemplo <code>0.5</code>.</p></div></div>
-</div></section>
+print(f&quot;Frontera de decisión: {decision_boundary:.2f} horas&quot;)
+
+# Generamos valores continuos para dibujar la curva.
+hours_curve = np.linspace(0, 7, 200)
+z_curve = theta0 + theta1 * hours_curve
+prob_curve = sigmoid(z_curve)
+
+plt.figure(figsize=(9, 5))
+
+# Curva de probabilidad.
+plt.plot(hours_curve, prob_curve, label=&quot;Probabilidad de aprobar&quot;)
+
+# Puntos evaluados.
+plt.scatter(hours, prob_pass, s=80, label=&quot;Estudiantes evaluados&quot;)
+
+# Umbral de decisión.
+plt.axhline(y=threshold, linestyle=&quot;--&quot;, label=&quot;Umbral = 0.5&quot;)
+
+# Frontera de decisión.
+plt.axvline(
+    x=decision_boundary,
+    linestyle=&quot;--&quot;,
+    label=f&quot;Frontera ≈ {decision_boundary:.2f} horas&quot;
+)
+
+plt.title(&quot;Regresión logística: probabilidad y frontera de decisión&quot;)
+plt.xlabel(&quot;Horas de estudio&quot;)
+plt.ylabel(&quot;Probabilidad estimada de aprobar&quot;)
+plt.ylim(-0.05, 1.05)
+plt.grid(True)
+plt.legend()
+plt.show()</code></pre>
+    </div>
+
+    <p>
+      En este segundo ejemplo, el modelo calcula primero el valor <code>z</code> para cada cantidad de horas de estudio. 
+      Después, aplica la función sigmoide para obtener la probabilidad de aprobar. 
+      Finalmente, compara esa probabilidad con el umbral de decisión <code>0.5</code>.
+    </p>
+
+    <p>
+      La frontera de decisión ocurre cuando la probabilidad es exactamente <code>0.5</code>. 
+      En la función sigmoide, eso sucede cuando <code>z = 0</code>. 
+      Como en este ejemplo usamos la expresión <code>z = -4.0 + 1.2x</code>, podemos encontrar la frontera resolviendo:
+    </p>
+
+    <div class="formula-block">
+      <div class="formula">
+        0 = −4.0 + 1.2x<br>
+        1.2x = 4.0<br>
+        x = 4.0 / 1.2 ≈ 3.33
+      </div>
+      <div class="formula-label">Cálculo de la frontera de decisión</div>
+    </div>
+
+    <p>
+      Esto significa que, según esta regla logística, alrededor de <code>3.33</code> horas de estudio es el punto donde el modelo cambia su decisión. 
+      Si un estudiante estudia menos que ese valor, la probabilidad estimada tiende a ser menor que <code>0.5</code>, por lo que el modelo predice clase <code>0</code>. 
+      Si estudia más que ese valor, la probabilidad estimada tiende a ser mayor que <code>0.5</code>, por lo que el modelo predice clase <code>1</code>.
+    </p>
+
+    <div class="highlight-box">
+      <p>
+        <strong>Interpretación práctica:</strong> la frontera de decisión no significa que todos los estudiantes que estudian más de 
+        <code>3.33</code> horas aprobarán con seguridad. Significa que, bajo esta regla, ese es el punto donde el modelo empieza a clasificar 
+        los casos como clase positiva. La salida sigue siendo una probabilidad estimada, no una garantía absoluta.
+      </p>
+    </div>
+
+    <div class="instructor-wrap">
+      <button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button>
+      <div class="instructor-note hidden">
+        <strong>Nota para el participante:</strong> Analicen el significado de una <strong>probabilidad</strong> dentro de un modelo de clasificación. 
+        Una probabilidad no debe interpretarse como una certeza absoluta, sino como una estimación del nivel de confianza del modelo sobre un posible resultado.
+
+        <p>
+          Por ejemplo, supongamos que un modelo usa las <strong>horas de estudio</strong> de un estudiante para estimar si aprobará un examen. 
+          Si el modelo calcula una probabilidad de <code>0.70</code>, esto significa que, según los patrones representados por el modelo, 
+          el estudiante tiene un <strong>70% de probabilidad de aprobar</strong>.
+        </p>
+
+        <p>
+          Sin embargo, eso no significa que aprobará con seguridad. Todavía existe un <strong>30% de probabilidad de reprobar</strong>. 
+          En otras palabras, un estudiante con una probabilidad de <code>0.70</code> podría aprobar, pero también podría reprobar.
+        </p>
+
+        <p>
+          Por esta razón, en regresión logística debemos entender la salida del modelo como una <strong>probabilidad estimada</strong>, 
+          no como una garantía. Después, esa probabilidad se convierte en una clase usando un umbral de decisión, por ejemplo <code>0.5</code>.
+        </p>
+
+        <p>
+          También es importante notar que cambiar el umbral cambia las decisiones del modelo. 
+          Por ejemplo, si usamos un umbral de <code>0.7</code>, el modelo será más estricto para clasificar un caso como clase positiva. 
+          Si usamos un umbral de <code>0.3</code>, será más flexible y clasificará más casos como positivos.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="s10"><div class="container"><div class="section-label green">Sección 10</div><h2>Costo logístico y entrenamiento</h2>
 <p>En regresión logística no usamos MSE como función principal de costo, porque necesitamos penalizar de manera especial las predicciones muy confiadas pero incorrectas. Para ello se usa comúnmente la <strong>entropía cruzada binaria</strong> o <strong>log-loss</strong>.</p>
@@ -623,11 +890,19 @@ for h, p, pred in zip(hours, prob_pass, predictions):
 <div class="highlight-box"><p><strong>Idea clave:</strong> el entrenamiento busca ajustar los parámetros para que las probabilidades sean altas en ejemplos positivos y bajas en ejemplos negativos.</p></div>
 <div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen la función de costo de la regresión logística desde una perspectiva intuitiva. En una sesión introductoria no es necesario demostrar toda la derivada matemática; lo más importante es comprender qué intenta lograr el modelo.</p>
 
-<p>La idea central es que el <strong>costo disminuye</strong> cuando el modelo asigna probabilidades coherentes con las etiquetas reales. Por ejemplo, si un caso pertenece a la clase positiva, es decir, <code>y = 1</code>, el modelo debería asignarle una probabilidad alta, como <code>0.85</code> o <code>0.90</code>. En cambio, si le asigna una probabilidad baja, como <code>0.10</code>, el costo aumenta porque la predicción va en contra de la etiqueta real.</p>
+<p><p></p>
+  La idea central es que el <strong>costo disminuye</strong> cuando el modelo asigna probabilidades coherentes con las etiquetas reales. Por ejemplo, si un caso pertenece a la clase positiva, es decir, <code>y = 1</code>, el modelo debería asignarle una probabilidad alta, como <code>0.85</code> o <code>0.90</code>. En cambio, si le asigna una probabilidad baja, como <code>0.10</code>, el costo aumenta porque la predicción va en contra de la etiqueta real.
+</p>
 
-<p>De la misma manera, si un caso pertenece a la clase negativa, es decir, <code>y = 0</code>, el modelo debería asignarle una probabilidad cercana a <code>0</code>. Si el modelo predice una probabilidad muy alta para esa clase positiva, por ejemplo <code>0.92</code>, estaría cometiendo un error importante y la función de costo lo penalizaría.</p>
+<p><p></p>
+  De la misma manera, si un caso pertenece a la clase negativa, es decir, <code>y = 0</code>, el modelo debería asignarle una probabilidad cercana a <code>0</code>. Si el modelo predice una probabilidad muy alta para esa clase positiva, por ejemplo <code>0.92</code>, estaría cometiendo un error importante y la función de costo lo penalizaría.
+</p>
 
-<p>En resumen, la función de costo ayuda al modelo a aprender porque recompensa las probabilidades que coinciden con las etiquetas reales y penaliza las probabilidades equivocadas, especialmente cuando el modelo se equivoca con mucha seguridad.</p></div></div>
+<p><p></p>
+  En resumen, la función de costo ayuda al modelo a aprender porque recompensa las probabilidades que coinciden con las etiquetas reales y penaliza las probabilidades equivocadas, especialmente cuando el modelo se equivoca con mucha seguridad.
+</p>
+
+</div></div>
 </div></section>
 
 <section class="section" id="s11"><div class="container"><div class="section-label green">Sección 11</div><h2>Regresión logística con scikit-learn</h2>
@@ -700,13 +975,23 @@ plt.title(&quot;Matriz de confusión - Regresión logística&quot;)
 plt.show()</code></pre></div>
 <div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen el significado de los <strong>falsos positivos</strong> y los <strong>falsos negativos</strong> dentro de un modelo de clasificación. Estos errores son importantes porque no todos los errores tienen el mismo impacto en la vida real.</p>
 
-<p>Un <strong>falso positivo</strong> ocurre cuando el modelo predice que un caso pertenece a la clase positiva, pero en realidad no pertenece a esa clase. Por ejemplo, en un contexto de salud, sería cuando el modelo indica que una persona podría tener una enfermedad, pero realmente no la tiene.</p>
+<p><p></p>
+  Un <strong>falso positivo</strong> ocurre cuando el modelo predice que un caso pertenece a la clase positiva, pero en realidad no pertenece a esa clase. Por ejemplo, en un contexto de salud, sería cuando el modelo indica que una persona podría tener una enfermedad, pero realmente no la tiene.
+</p>
 
-<p>Un <strong>falso negativo</strong> ocurre cuando el modelo predice que un caso pertenece a la clase negativa, pero en realidad sí pertenece a la clase positiva. En salud, este tipo de error puede ser especialmente grave, porque el modelo indica que no hay problema cuando en realidad sí lo hay.</p>
+<p><p></p>
+  Un <strong>falso negativo</strong> ocurre cuando el modelo predice que un caso pertenece a la clase negativa, pero en realidad sí pertenece a la clase positiva. En salud, este tipo de error puede ser especialmente grave, porque el modelo indica que no hay problema cuando en realidad sí lo hay.
+</p>
 
-<p>Por ejemplo, si un modelo analiza información médica y predice que un paciente no tiene una enfermedad, pero el paciente sí la tiene, se produce un falso negativo. Esto podría retrasar el diagnóstico, el tratamiento y la atención necesaria.</p>
+<p><p></p>
+  Por ejemplo, si un modelo analiza información médica y predice que un paciente no tiene una enfermedad, pero el paciente sí la tiene, se produce un falso negativo. Esto podría retrasar el diagnóstico, el tratamiento y la atención necesaria.
+</p>
 
-<p>Por esta razón, al evaluar modelos de clasificación no basta con revisar solo la exactitud general. También es importante analizar la matriz de confusión, la precisión y el recall, especialmente cuando los falsos negativos pueden tener consecuencias graves.</p></div></div>
+<p><p></p>
+  Por esta razón, al evaluar modelos de clasificación no basta con revisar solo la exactitud general. También es importante analizar la matriz de confusión, la precisión y el recall, especialmente cuando los falsos negativos pueden tener consecuencias graves.
+</p>
+
+</div></div>
 </div></section>
 
 <section class="section" id="s12"><div class="container"><div class="section-label red">Sección 12</div><h2>Ejercicios finales, regularización y cierre</h2>
