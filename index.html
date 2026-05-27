@@ -167,7 +167,6 @@ footer { padding:42px 24px; text-align:center; color:var(--muted); font-family:'
 </section>
 
 <div class="toc-section"><div class="container"><div class="section-label">Contenido del taller</div><h2>Ruta de aprendizaje</h2><div class="toc-grid">
-  <a class="toc-item" href="#s0"><span class="toc-num">00</span><span class="toc-title">Introducción a IA con Python</span></a>
   <a class="toc-item" href="#s1"><span class="toc-num">01</span><span class="toc-title">Aprendizaje supervisado y regresión</span></a>
   <a class="toc-item" href="#s2"><span class="toc-num">02</span><span class="toc-title">Dataset completo de housing prices</span></a>
   <a class="toc-item" href="#s3"><span class="toc-num">03</span><span class="toc-title">Función hipótesis</span></a>
@@ -180,58 +179,61 @@ footer { padding:42px 24px; text-align:center; color:var(--muted); font-family:'
   <a class="toc-item" href="#s10"><span class="toc-num">10</span><span class="toc-title">Costo logístico y entrenamiento</span></a>
   <a class="toc-item" href="#s11"><span class="toc-num">11</span><span class="toc-title">Regresión logística con scikit-learn</span></a>
   <a class="toc-item" href="#s12"><span class="toc-num">12</span><span class="toc-title">Ejercicios finales y cierre</span></a>
-  <a class="toc-item" href="#quiz-final"><span class="toc-num">13</span><span class="toc-title">Quiz final del taller</span></a>
 </div></div></div>
 
 
 <section class="section" id="s0">
   <div class="container">
-    <div class="section-label green">Sección 00</div>
-    <h2>Introducción: Inteligencia Artificial con Python</h2>
+    <div class="section-label green">Introducción</div>
+    <h2>Inteligencia Artificial con Python: de los datos a las predicciones</h2>
 
     <p>
-      La <strong>Inteligencia Artificial</strong>, o <strong>IA</strong>, es un área de la informática que busca crear sistemas capaces de realizar tareas que normalmente requieren cierto nivel de razonamiento humano. Estas tareas pueden incluir reconocer patrones, hacer predicciones, clasificar información, recomendar opciones, interpretar datos, automatizar decisiones o aprender a partir de ejemplos.
+      La <strong>Inteligencia Artificial</strong>, conocida comúnmente como <strong>IA</strong>, es una rama de la computación que busca crear sistemas capaces de realizar tareas que normalmente asociamos con la inteligencia humana. Estas tareas pueden incluir reconocer patrones, analizar información, clasificar situaciones, hacer predicciones, recomendar opciones, interpretar lenguaje, procesar imágenes o tomar decisiones basadas en datos.
     </p>
 
     <p>
-      En este taller, estudiaremos la IA desde una perspectiva práctica usando <strong>Python</strong>. Python se ha convertido en uno de los lenguajes más importantes para IA y Machine Learning porque tiene una sintaxis clara, una comunidad amplia y bibliotecas especializadas que facilitan el trabajo con datos, modelos matemáticos, visualización y evaluación de resultados.
+      En un contexto práctico, la IA no debe entenderse como magia ni como una tecnología que “piensa” por sí sola. En la mayoría de los casos, un sistema de IA aprende a partir de ejemplos. Es decir, recibe datos, identifica relaciones dentro de esos datos y utiliza esas relaciones para producir una salida útil. Esa salida puede ser un número, una categoría, una probabilidad, una recomendación o una alerta.
     </p>
 
     <div class="highlight-box">
       <p>
-        <strong>Idea central:</strong> la IA con Python no consiste solamente en escribir código. Consiste en usar datos, modelos y criterios de evaluación para construir soluciones que puedan aprender patrones y producir resultados útiles en situaciones nuevas.
+        <strong>Idea central:</strong> trabajar con IA usando Python significa combinar programación, datos, modelos matemáticos y herramientas de análisis para construir soluciones que puedan aprender patrones y apoyar la toma de decisiones.
       </p>
     </div>
 
-    <h3 class="green">¿Por qué Python es importante para IA?</h3>
+    <h3 class="green">¿Por qué Python es tan utilizado en Inteligencia Artificial?</h3>
 
     <p>
-      Python permite trabajar de forma sencilla con datos y modelos. En lugar de implementar desde cero todas las operaciones matemáticas, podemos apoyarnos en bibliotecas como <code>NumPy</code>, <code>Pandas</code>, <code>Matplotlib</code> y <code>scikit-learn</code>. Cada una cumple un papel importante dentro del flujo de trabajo de IA.
+      Python es uno de los lenguajes más utilizados en IA porque permite escribir código claro, probar ideas rápidamente y trabajar con bibliotecas especializadas para ciencia de datos y aprendizaje automático. Su sintaxis es relativamente sencilla, lo que facilita concentrarse en el problema que se quiere resolver y no solamente en los detalles técnicos del lenguaje.
+    </p>
+
+    <p>
+      En proyectos de IA, Python se utiliza para cargar datos, limpiarlos, analizarlos, visualizarlos, entrenar modelos, evaluar resultados y crear predicciones. Herramientas como <code>NumPy</code>, <code>Pandas</code>, <code>Matplotlib</code> y <code>scikit-learn</code> permiten construir flujos de trabajo completos, desde la preparación de los datos hasta la evaluación del modelo.
     </p>
 
     <div class="info-grid">
       <div class="info-card">
         <div class="info-card-title">NumPy</div>
-        <div class="info-card-val">Cálculo numérico, arreglos y operaciones matemáticas.</div>
+        <div class="info-card-val">Cálculo numérico y arreglos</div>
       </div>
       <div class="info-card">
         <div class="info-card-title">Pandas</div>
-        <div class="info-card-val">Organización, limpieza y análisis de datos tabulares.</div>
+        <div class="info-card-val">Manipulación y análisis de datos</div>
       </div>
       <div class="info-card">
         <div class="info-card-title">Matplotlib</div>
-        <div class="info-card-val">Visualización de datos, tendencias, errores y resultados.</div>
+        <div class="info-card-val">Visualización de datos y resultados</div>
       </div>
       <div class="info-card">
         <div class="info-card-title">scikit-learn</div>
-        <div class="info-card-val">Entrenamiento, evaluación y uso de modelos de Machine Learning.</div>
+        <div class="info-card-val">Modelos de machine learning</div>
       </div>
     </div>
 
-    <h3 class="green">Áreas principales de la IA</h3>
+    <h3 class="green">Áreas principales de la Inteligencia Artificial</h3>
 
     <p>
-      La IA es un campo amplio. Algunos sistemas se enfocan en comprender lenguaje, otros en reconocer imágenes, otros en hacer predicciones numéricas y otros en tomar decisiones automáticas. Aunque existen muchas áreas, las siguientes son especialmente relevantes para comprender el contexto de este taller.
+      La IA es un campo amplio. Dentro de ella existen varias áreas que se enfocan en diferentes tipos de problemas. Aunque este taller se concentra en modelos supervisados como regresión lineal y regresión logística, es importante ubicar estos modelos dentro de un panorama más amplio.
     </p>
 
     <table class="cmp-table">
@@ -239,118 +241,112 @@ footer { padding:42px 24px; text-align:center; color:var(--muted); font-family:'
         <tr>
           <th>Área</th>
           <th>Descripción</th>
-          <th>Ejemplo práctico</th>
+          <th>Ejemplo de aplicación</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Machine Learning</td>
-          <td>Permite que un modelo aprenda patrones a partir de datos.</td>
-          <td>Predecir el precio de una vivienda usando características como tamaño, habitaciones y antigüedad.</td>
+          <td>Permite que un modelo aprenda patrones a partir de datos históricos para hacer predicciones o clasificaciones.</td>
+          <td>Predecir precios de viviendas o clasificar clientes.</td>
         </tr>
         <tr>
-          <td>Procesamiento de lenguaje natural</td>
-          <td>Trabaja con texto, lenguaje humano, clasificación de documentos y generación de respuestas.</td>
-          <td>Clasificar correos como spam o no spam.</td>
+          <td>Procesamiento de Lenguaje Natural</td>
+          <td>Se enfoca en analizar, generar o interpretar texto y lenguaje humano.</td>
+          <td>Analizar comentarios, resumir textos o crear asistentes conversacionales.</td>
         </tr>
         <tr>
-          <td>Visión por computadora</td>
-          <td>Analiza imágenes y videos para detectar objetos, rostros, patrones o anomalías.</td>
-          <td>Identificar defectos en piezas industriales a partir de fotografías.</td>
+          <td>Visión por Computadora</td>
+          <td>Permite analizar imágenes o videos para detectar objetos, patrones o características visuales.</td>
+          <td>Reconocimiento facial, inspección de productos o diagnóstico por imágenes.</td>
         </tr>
         <tr>
-          <td>Sistemas de recomendación</td>
-          <td>Sugieren elementos a los usuarios con base en patrones de comportamiento o similitud.</td>
-          <td>Recomendar cursos, productos, películas o recursos educativos.</td>
+          <td>Sistemas de Recomendación</td>
+          <td>Utilizan datos de usuarios, productos o comportamientos para sugerir opciones relevantes.</td>
+          <td>Recomendar cursos, películas, productos o contenidos.</td>
         </tr>
         <tr>
-          <td>Analítica predictiva</td>
-          <td>Usa datos históricos para estimar resultados futuros.</td>
-          <td>Estimar ventas, demanda, riesgo o probabilidad de abandono de clientes.</td>
+          <td>Automatización Inteligente</td>
+          <td>Combina reglas, datos y modelos para automatizar tareas o decisiones repetitivas.</td>
+          <td>Filtrar solicitudes, detectar riesgos o priorizar casos.</td>
         </tr>
       </tbody>
     </table>
 
-    <h3 class="green">Machine Learning: aprender a partir de datos</h3>
+    <h3 class="green">Tipos de aprendizaje en Machine Learning</h3>
 
     <p>
-      Dentro de la IA, el <strong>Machine Learning</strong> es una de las áreas más utilizadas. Su objetivo es crear modelos que aprendan relaciones a partir de ejemplos. En lugar de programar manualmente todas las reglas posibles, proporcionamos datos históricos y permitimos que el modelo ajuste sus parámetros para encontrar una regla útil.
+      Una de las formas más comunes de trabajar con IA es mediante <strong>Machine Learning</strong>. En lugar de programar todas las reglas manualmente, se le entregan datos a un algoritmo para que aprenda una relación entre las entradas y las salidas. Dependiendo del tipo de datos y del objetivo, podemos hablar de distintos tipos de aprendizaje.
     </p>
 
-    <p>
-      En aprendizaje supervisado, cada ejemplo tiene una entrada <code>X</code> y una respuesta conocida <code>y</code>. El modelo aprende a relacionar ambas partes. Después del entrenamiento, puede recibir nuevos datos de entrada y producir una predicción.
-    </p>
+    <ul class="content-list">
+      <li><strong>Aprendizaje supervisado:</strong> el modelo aprende a partir de ejemplos que ya incluyen la respuesta correcta. Es el enfoque usado en regresión lineal y regresión logística.</li>
+      <li><strong>Aprendizaje no supervisado:</strong> el modelo analiza datos sin respuestas previamente etiquetadas, buscando grupos, patrones o estructuras internas.</li>
+      <li><strong>Aprendizaje por refuerzo:</strong> el modelo aprende mediante interacción con un entorno, recibiendo recompensas o penalizaciones según sus decisiones.</li>
+    </ul>
 
-    <div class="formula-block">
-      <div class="formula">datos de entrada X → modelo → predicción ŷ</div>
-      <div class="formula-label">Flujo básico de un modelo supervisado</div>
+    <div class="callout">
+      <strong>Conexión con este taller:</strong> la regresión lineal y la regresión logística pertenecen al aprendizaje supervisado porque el modelo se entrena con ejemplos donde ya conocemos la salida esperada.
     </div>
 
-    <h3 class="green">Tipos de modelos en Machine Learning</h3>
+    <h3 class="green">Tipos de modelos: predicción numérica y clasificación</h3>
 
     <p>
-      Los modelos de Machine Learning pueden organizarse de diferentes maneras. Una forma común es distinguir entre modelos de <strong>regresión</strong>, modelos de <strong>clasificación</strong> y modelos de <strong>agrupamiento</strong>. En este taller nos enfocaremos principalmente en regresión y clasificación, porque son la base para comprender la regresión lineal y la regresión logística.
+      En aprendizaje supervisado, dos familias de problemas aparecen con mucha frecuencia: <strong>regresión</strong> y <strong>clasificación</strong>. La diferencia principal está en el tipo de salida que queremos obtener.
     </p>
 
     <table class="cmp-table">
       <thead>
         <tr>
-          <th>Tipo de modelo</th>
+          <th>Tipo de problema</th>
           <th>Qué predice</th>
           <th>Ejemplo</th>
+          <th>Modelo relacionado</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Regresión</td>
           <td>Un valor numérico continuo.</td>
-          <td>Precio de una casa, temperatura, ventas esperadas o consumo eléctrico.</td>
+          <td>Precio de una vivienda, ventas futuras, temperatura, demanda.</td>
+          <td>Regresión lineal</td>
         </tr>
         <tr>
           <td>Clasificación</td>
           <td>Una categoría o clase.</td>
-          <td>Aprobado/no aprobado, spam/no spam, cliente compra/no compra.</td>
-        </tr>
-        <tr>
-          <td>Agrupamiento</td>
-          <td>Grupos o segmentos sin etiquetas previas.</td>
-          <td>Agrupar clientes con comportamientos similares.</td>
-        </tr>
-        <tr>
-          <td>Recomendación</td>
-          <td>Elementos relevantes para un usuario.</td>
-          <td>Sugerir cursos o productos según preferencias anteriores.</td>
+          <td>Aprobado/no aprobado, fraude/no fraude, compra/no compra.</td>
+          <td>Regresión logística</td>
         </tr>
       </tbody>
     </table>
 
-    <h3 class="green">Regresión lineal: predecir valores numéricos</h3>
+    <h3 class="green">Regresión lineal dentro de la IA</h3>
 
     <p>
-      La <strong>regresión lineal</strong> es uno de los modelos más importantes para comenzar en Machine Learning. Se utiliza cuando queremos predecir un valor numérico. Por ejemplo, si tenemos información sobre una vivienda, como su tamaño y número de habitaciones, podemos entrenar un modelo para estimar su precio.
+      La <strong>regresión lineal</strong> es uno de los modelos más importantes para comenzar a estudiar Machine Learning. Su objetivo es encontrar una relación entre una o más variables de entrada y un valor numérico de salida. Por ejemplo, podemos usar características de una vivienda, como tamaño, número de habitaciones o antigüedad, para estimar su precio.
     </p>
 
     <p>
-      La idea principal es encontrar una línea, o una combinación lineal de variables, que represente la tendencia general de los datos. En su versión más simple, la regresión lineal usa una sola característica de entrada y produce una predicción mediante la siguiente forma:
+      Aunque es un modelo simple, la regresión lineal introduce ideas fundamentales de IA: datos de entrenamiento, hipótesis, parámetros, error, función de costo, ajuste del modelo y evaluación. Estos conceptos aparecen también en modelos más avanzados, por lo que comprenderlos bien ayuda a construir una base sólida.
     </p>
 
     <div class="formula-block">
       <div class="formula">h(x) = θ₀ + θ₁x</div>
-      <div class="formula-label">Hipótesis de regresión lineal simple</div>
+      <div class="formula-label">Forma básica de una hipótesis de regresión lineal simple</div>
     </div>
 
     <p>
-      En esta expresión, <code>θ₀</code> representa el intercepto o valor base, <code>θ₁</code> representa la pendiente o peso de la variable, y <code>x</code> representa la característica de entrada. El entrenamiento consiste en encontrar valores adecuados para esos parámetros, de modo que las predicciones estén lo más cerca posible de los valores reales.
+      En esta fórmula, <code>x</code> representa una característica de entrada, <code>θ₀</code> representa el intercepto y <code>θ₁</code> representa la pendiente. El entrenamiento del modelo consiste en encontrar valores adecuados para esos parámetros, de modo que las predicciones se acerquen lo más posible a los valores reales.
     </p>
 
-    <h3 class="green">Regresión logística: clasificar casos</h3>
+    <h3 class="green">Regresión logística dentro de la IA</h3>
 
     <p>
-      La <strong>regresión logística</strong> se usa para problemas de clasificación, especialmente cuando queremos decidir entre dos clases. Aunque su nombre incluye la palabra “regresión”, su propósito principal no es predecir un número continuo, sino estimar la probabilidad de que un caso pertenezca a una clase.
+      La <strong>regresión logística</strong> se utiliza para problemas de clasificación. A pesar de tener la palabra “regresión” en su nombre, su objetivo no es predecir directamente un valor continuo, sino estimar la probabilidad de que un ejemplo pertenezca a una clase.
     </p>
 
     <p>
-      Por ejemplo, podemos usar regresión logística para estimar si un estudiante aprobará o no un examen, si un cliente comprará o no un producto, o si un correo electrónico debe clasificarse como spam o no spam. Para lograrlo, el modelo calcula un valor lineal y luego lo transforma en una probabilidad usando la función sigmoide.
+      Por ejemplo, un modelo de regresión logística puede estimar la probabilidad de que un cliente compre un producto, que una transacción sea fraudulenta o que un estudiante apruebe un curso. Después, esa probabilidad se convierte en una decisión mediante un umbral, normalmente <code>0.5</code>.
     </p>
 
     <div class="formula-block">
@@ -359,11 +355,29 @@ footer { padding:42px 24px; text-align:center; color:var(--muted); font-family:'
     </div>
 
     <p>
-      La salida de la función sigmoide siempre está entre <code>0</code> y <code>1</code>. Por esa razón puede interpretarse como una probabilidad. Después, el modelo usa un umbral, normalmente <code>0.5</code>, para decidir si la predicción final será clase <code>0</code> o clase <code>1</code>.
+      La función sigmoide transforma cualquier valor numérico en una probabilidad entre <code>0</code> y <code>1</code>. Esta idea permite que el modelo no solo entregue una clase final, sino también una medida de confianza sobre esa decisión.
     </p>
 
-    <div class="callout">
-      <strong>Conexión con el taller:</strong> primero estudiaremos la regresión lineal para comprender cómo un modelo aprende una relación numérica. Después veremos regresión logística para entender cómo una idea similar puede adaptarse a problemas de clasificación binaria.
+    <h3 class="green">Flujo general de un proyecto de IA con Python</h3>
+
+    <p>
+      Aunque cada proyecto puede variar, muchos proyectos de IA con Python siguen un flujo de trabajo común. Este taller recorrerá varias partes de ese proceso usando ejemplos pequeños y comprensibles.
+    </p>
+
+    <ul class="content-list">
+      <li><strong>Definir el problema:</strong> identificar qué queremos predecir o clasificar.</li>
+      <li><strong>Preparar los datos:</strong> cargar, organizar y revisar las variables disponibles.</li>
+      <li><strong>Seleccionar el modelo:</strong> elegir una técnica adecuada según el tipo de salida esperada.</li>
+      <li><strong>Entrenar el modelo:</strong> ajustar los parámetros usando datos de entrenamiento.</li>
+      <li><strong>Evaluar el modelo:</strong> medir qué tan bien funciona usando métricas adecuadas.</li>
+      <li><strong>Interpretar resultados:</strong> comprender qué significan las predicciones y sus errores.</li>
+    </ul>
+
+    <div class="instructor-wrap">
+      <button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota para los participantes</button>
+      <div class="instructor-note hidden">
+        <strong>Nota para el participante:</strong> antes de escribir código, es importante entender que un modelo de IA no es inteligente solamente por usar Python o una biblioteca especializada. El valor del modelo depende de los datos, de la forma en que se entrena, de la métrica con la que se evalúa y de la interpretación que hacemos de sus resultados.
+      </div>
     </div>
   </div>
 </section>
@@ -437,10 +451,19 @@ print(df.describe())</code></pre></div>
 <div class="formula-block"><div class="formula">h<sub>θ</sub>(x) = θ₀ + θ₁x</div><div class="formula-label">Hipótesis de regresión lineal simple</div></div>
 <ul class="content-list"><li><strong>θ₀</strong> es el intercepto. Representa el punto inicial de la línea.</li><li><strong>θ₁</strong> es la pendiente. Representa cuánto cambia la predicción cuando x aumenta una unidad.</li><li><strong>x</strong> es la característica de entrada; por ejemplo, el tamaño de la vivienda.</li></ul>
 <p>En el contexto de viviendas, si usamos el tamaño en ft² como entrada, la pendiente indica cuánto aumenta el precio estimado por cada pie cuadrado adicional.</p>
-<div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>03_hipotesis_simple.py</strong></div><pre><code># Ejemplo breve: calcular una predicción con una línea recta.
+
+<div class="code-block">
+  <div class="code-header">
+    <span></span><span></span><span></span>
+    <strong>03_hipotesis_simple.py</strong>
+  </div>
+  <pre><code># Ejemplo breve: calcular y visualizar una predicción con una línea recta.
 # h(x) = θ0 + θ1*x
 # Supongamos que θ0 = 50000 y θ1 = 150.
 # Esto significa: precio base de 50,000 + 150 dólares por cada ft².
+
+import numpy as np
+import matplotlib.pyplot as plt
 
 theta0 = 50000      # Intercepto: valor base estimado de la casa
 theta1 = 150        # Pendiente: aumento estimado por cada pie cuadrado
@@ -448,9 +471,80 @@ size = 1650         # Tamaño de la vivienda que queremos estimar
 
 prediction = theta0 + theta1 * size
 
-print(&quot;Precio estimado:&quot;, prediction)</code></pre></div>
-<p>Este ejemplo no entrena un modelo; solo muestra cómo se calcula una predicción cuando ya tenemos valores para θ₀ y θ₁. El entrenamiento consiste precisamente en encontrar buenos valores para esos parámetros.</p>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Reflexionen sobre la función de hipótesis en regresión lineal. Expliquen por qué una hipótesis como h(x) = θ₀ + θ₁x no es “inteligente” por sí sola al inicio. Después, comenten cómo el modelo comienza a aprender cuando ajusta los valores de θ₀ y θ₁ usando los datos del dataset.</div></div>
+print(&quot;Precio estimado:&quot;, prediction)
+
+# Generamos varios tamaños de vivienda para dibujar la línea de hipótesis.
+sizes = np.array([800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400])
+
+# Calculamos la predicción para cada tamaño usando la misma hipótesis.
+predicted_prices = theta0 + theta1 * sizes
+
+# Creamos la gráfica.
+plt.figure(figsize=(9, 5))
+
+# Dibujamos la línea de hipótesis.
+plt.plot(
+    sizes,
+    predicted_prices,
+    marker=&quot;o&quot;,
+    label=&quot;Hipótesis: h(x) = 50000 + 150x&quot;
+)
+
+# Marcamos la vivienda específica que queremos estimar.
+plt.scatter(
+    size,
+    prediction,
+    s=120,
+    label=&quot;Predicción para 1650 ft²&quot;
+)
+
+# Agregamos una anotación para destacar el punto estimado.
+plt.annotate(
+    f&quot;1650 ft² → ${prediction:,.0f}&quot;,
+    xy=(size, prediction),
+    xytext=(size + 80, prediction - 35000),
+    arrowprops=dict(arrowstyle=&quot;->&quot;)
+)
+
+# Personalizamos la gráfica.
+plt.title(&quot;Hipótesis de regresión lineal simple&quot;)
+plt.xlabel(&quot;Tamaño de la vivienda (ft²)&quot;)
+plt.ylabel(&quot;Precio estimado (USD)&quot;)
+plt.grid(True)
+plt.legend()
+
+# Mostramos la gráfica.
+plt.show()</code></pre>
+</div>
+
+<p>Este ejemplo no entrena un modelo; solo muestra cómo se calcula una predicción cuando ya tenemos valores para <strong>θ₀</strong> y <strong>θ₁</strong>. El entrenamiento consiste precisamente en encontrar buenos valores para esos parámetros.</p>
+
+<div class="highlight-box">
+  <p><strong>Explicación de la gráfica:</strong> la línea representa la hipótesis de regresión lineal simple. Cada punto sobre la línea muestra el precio estimado para un tamaño de vivienda distinto. En este caso, usamos la fórmula <code>h(x) = 50000 + 150x</code>, donde <code>50000</code> es el valor base o intercepto, y <code>150</code> indica que el precio estimado aumenta 150 dólares por cada pie cuadrado adicional.</p>
+
+  <p>El punto resaltado corresponde a una vivienda de <code>1650 ft²</code>. Al sustituir ese valor en la función, el modelo calcula:</p>
+
+  <div class="formula-block">
+    <div class="formula">h(1650) = 50000 + 150(1650) = 297500</div>
+    <div class="formula-label">Predicción para una vivienda de 1650 ft²</div>
+  </div>
+
+  <p>Visualmente, esto ayuda a comprender que la hipótesis no es solo una fórmula aislada: es una línea que asigna una predicción a cada posible valor de entrada. Si el tamaño de la vivienda aumenta, el precio estimado también aumenta de forma constante porque la pendiente es positiva.</p>
+</div>
+
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Reflexionen sobre la función de hipótesis en regresión lineal. Expliquen por qué una hipótesis como h(x) = θ₀ + θ₁x no es “inteligente” por sí sola al inicio. Después, comenten cómo el modelo comienza a aprender cuando ajusta los valores de θ₀ y θ₁ usando los datos del dataset.
+<p><p></p>
+  Una hipótesis como <code>h(x) = θ₀ + θ₁x</code> no es “inteligente” por sí sola al inicio porque solamente es una fórmula matemática con parámetros todavía no ajustados. Al principio, los valores de <code>θ₀</code> y <code>θ₁</code> pueden ser arbitrarios, aproximados o incluso incorrectos, por lo que la función todavía no ha aprendido realmente la relación entre los datos de entrada y el resultado esperado.
+</p>
+<p><p></p>
+  La inteligencia del modelo no está en escribir la fórmula, sino en el proceso de entrenamiento. Durante el entrenamiento, el modelo compara sus predicciones con los valores reales, mide el error y ajusta los parámetros para reducir ese error. Solo después de este proceso la hipótesis comienza a representar mejor el comportamiento de los datos.
+</p>
+
+<p><p></p>
+  En otras palabras, la hipótesis es como una regla vacía al inicio: tiene una estructura, pero todavía no sabe qué valores son adecuados. Se vuelve útil cuando aprende, a partir de los datos, cuáles valores de <code>θ₀</code> y <code>θ₁</code> producen predicciones más cercanas a la realidad.
+</p>
+
+</div></div>
 </div></section>
 
 <section class="section" id="s4"><div class="container"><div class="section-label orange">Sección 04</div><h2>Función de costo: medir qué tan mal predice el modelo</h2>
@@ -489,6 +583,15 @@ Por ejemplo, si estamos prediciendo el precio de viviendas en dólares, el RMSE 
 <p>El <strong>descenso del gradiente</strong> es un algoritmo de optimización. Su objetivo es encontrar los valores de los parámetros que minimizan la función de costo. La idea es sencilla: si el costo está alto, ajustamos θ₀ y θ₁ poco a poco en la dirección que reduce el error.</p>
 <div class="formula-block"><div class="formula">θⱼ := θⱼ − α · ∂J(θ) / ∂θⱼ</div><div class="formula-label">Regla general de actualización</div></div>
 <p>El símbolo <strong>α</strong> representa la tasa de aprendizaje. Si α es muy pequeña, el modelo aprende lentamente. Si α es demasiado grande, el entrenamiento puede volverse inestable y el costo puede aumentar en lugar de disminuir.</p>
+
+<div class="callout">
+  <strong>Antes de ejecutar este código:</strong> asegúrate de haber ejecutado el bloque anterior. 
+  Este ejemplo reutiliza variables que ya fueron creadas previamente, como 
+  <code>X</code>, <code>y</code>, <code>X_train_scaled</code>, <code>y_test</code> o <code>y_pred</code>. 
+  Si ejecutas este bloque de forma aislada, Python puede mostrar un error de tipo 
+  <code>NameError</code>.
+</div>
+
 <div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>05_descenso_gradiente.py</strong></div><pre><code># Regresión lineal con descenso del gradiente usando el dataset completo.
 # Para facilitar el entrenamiento, usamos una sola característica: tamaño de la casa.
 # Además, normalizamos la característica para evitar números demasiado grandes.
@@ -543,13 +646,29 @@ new_size_norm = (new_size - x_mean) / x_std
 predicted_price = theta0 + theta1 * new_size_norm
 print(&quot;Precio estimado para 1650 ft²:&quot;, predicted_price)</code></pre></div>
 <div class="exercise-box"><div class="exercise-title">Ejercicio breve</div><p>Ejecute el código cambiando <code>alpha</code> a <code>0.001</code>, <code>0.01</code> y <code>0.1</code>. Observe cómo cambia el costo final. El objetivo es identificar cuándo el aprendizaje es lento y cuándo empieza a ser inestable.</p></div>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Observen el ciclo <code>for</code> como una serie de pequeñas correcciones que el modelo realiza paso a paso. En cada iteración, el modelo revisa qué tan lejos están sus predicciones de los valores reales y ajusta ligeramente sus parámetros para reducir el error. <p>Piensen en el <strong>gradiente</strong> como una brújula: no es solo una fórmula matemática, sino una señal que le indica al modelo hacia dónde debe moverse para bajar el error. Si el modelo está muy alejado de una buena predicción, el gradiente le ayuda a corregir el rumbo; si ya está cerca, los cambios se vuelven más pequeños hasta acercarse al mejor ajuste posible.</p></div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Observen el ciclo <code>for</code> como una serie de pequeñas correcciones que el modelo realiza paso a paso. En cada iteración, el modelo revisa qué tan lejos están sus predicciones de los valores reales y ajusta ligeramente sus parámetros para reducir el error. 
+  
+<p><p></p>
+  Piensen en el <strong>gradiente</strong> como una brújula: no es solo una fórmula matemática, sino una señal que le indica al modelo hacia dónde debe moverse para bajar el error. Si el modelo está muy alejado de una buena predicción, el gradiente le ayuda a corregir el rumbo; si ya está cerca, los cambios se vuelven más pequeños hasta acercarse al mejor ajuste posible.
+</p>
+
+</div></div>
 </div></section>
 
 <section class="section" id="s6"><div class="container"><div class="section-label">Sección 06</div><h2>Regresión lineal múltiple con scikit-learn</h2>
 <p>En proyectos reales no entrenamos modelos solamente desde cero. Bibliotecas como <strong>scikit-learn</strong> implementan algoritmos optimizados, confiables y fáciles de integrar en flujos de análisis de datos.</p>
+<p><strong>Scikit-learn</strong> (también conocido como sklearn) es la librería de código abierto estándar para el aprendizaje automático en Python. Proporciona herramientas simples y eficientes para el análisis predictivo de datos. Está construida sobre el ecosistema científico de Python: NumPy, SciPy y Matplotlib.</p>
 <p>En este ejemplo usaremos las dos características del dataset completo: tamaño de la vivienda y número de habitaciones. Esto convierte el problema en una <strong>regresión lineal múltiple</strong>.</p>
 <div class="formula-block"><div class="formula">h<sub>θ</sub>(x) = θ₀ + θ₁x₁ + θ₂x₂</div><div class="formula-label">Regresión lineal con dos características</div></div>
+
+<div class="callout">
+  <strong>Antes de ejecutar este código:</strong> asegúrate de haber ejecutado el bloque anterior. 
+  Este ejemplo reutiliza variables que ya fueron creadas previamente, como 
+  <code>X</code>, <code>y</code>, <code>X_train_scaled</code>, <code>y_test</code> o <code>y_pred</code>. 
+  Si ejecutas este bloque de forma aislada, Python puede mostrar un error de tipo 
+  <code>NameError</code>.
+</div>
+
 <div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>06_regresion_lineal_sklearn.py</strong></div><pre><code># Regresión lineal múltiple con scikit-learn usando el dataset completo.
 # Aquí usamos dos características: tamaño de la casa y número de habitaciones.
 
@@ -597,12 +716,28 @@ new_price = model.predict(new_house_scaled)
 
 print(&quot;Precio estimado para casa nueva:&quot;, new_price[0])</code></pre></div>
 <p>Después del entrenamiento, el modelo genera un intercepto y dos coeficientes: uno asociado al tamaño de la vivienda y otro asociado al número de habitaciones. Estos coeficientes indican cómo contribuye cada variable a la predicción, considerando que los datos fueron escalados.</p>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen por qué los coeficientes de un modelo no siempre se interpretan de la misma manera cuando los datos han sido escalados. Cuando usamos <code>StandardScaler</code>, las características dejan de estar expresadas en sus unidades originales, como pies cuadrados o número de habitaciones, y pasan a representarse en términos de desviaciones estándar. <p> Por esta razón, un coeficiente ya no significa “cuánto cambia el precio por cada unidad adicional de la característica”. En su lugar, significa cuánto cambia la predicción cuando esa característica aumenta una desviación estándar, manteniendo las demás características constantes. Por ejemplo, si la característica <code>size_ft2</code> fue escalada con <code>StandardScaler</code>, su coeficiente no debe interpretarse como el cambio en el precio por cada pie cuadrado adicional. Debe interpretarse como el cambio estimado en el precio cuando el tamaño de la vivienda aumenta una desviación estándar respecto al promedio del dataset.</p></div></div>
+<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button>
+  
+<div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen por qué los coeficientes de un modelo no siempre se interpretan de la misma manera cuando los datos han sido escalados. Cuando usamos <code>StandardScaler</code>, las características dejan de estar expresadas en sus unidades originales, como pies cuadrados o número de habitaciones, y pasan a representarse en términos de desviaciones estándar. 
+<p><p></p>
+  Por esta razón, un coeficiente ya no significa “cuánto cambia el precio por cada unidad adicional de la característica”. En su lugar, significa cuánto cambia la predicción cuando esa característica aumenta una desviación estándar, manteniendo las demás características constantes. Por ejemplo, si la característica <code>size_ft2</code> fue escalada con <code>StandardScaler</code>, su coeficiente no debe interpretarse como el cambio en el precio por cada pie cuadrado adicional. Debe interpretarse como el cambio estimado en el precio cuando el tamaño de la vivienda aumenta una desviación estándar respecto al promedio del dataset.
+</p>
+
+</div></div>
 </div></section>
 
 <section class="section" id="s7"><div class="container"><div class="section-label red">Sección 07</div><h2>Evaluación de regresión: ¿qué tan bueno es el modelo?</h2>
 <p>Entrenar un modelo no es suficiente. Necesitamos evaluarlo con datos que no haya visto durante el entrenamiento. Por eso dividimos el dataset en entrenamiento y prueba.</p>
 <table class="cmp-table"><tr><th>Métrica</th><th>Qué mide</th><th>Interpretación</th></tr><tr><td>MSE</td><td>Error cuadrático medio</td><td>Penaliza errores grandes; puede ser difícil de interpretar directamente.</td></tr><tr><td>RMSE</td><td>Raíz del MSE</td><td>Se interpreta en las mismas unidades del precio.</td></tr><tr><td>R²</td><td>Proporción de variabilidad explicada</td><td>Más cercano a 1 indica mejor ajuste; puede ser negativo si el modelo es muy malo.</td></tr></table>
+
+<div class="callout">
+  <strong>Antes de ejecutar este código:</strong> asegúrate de haber ejecutado el bloque anterior. 
+  Este ejemplo reutiliza variables que ya fueron creadas previamente, como 
+  <code>X</code>, <code>y</code>, <code>X_train_scaled</code>, <code>y_test</code> o <code>y_pred</code>. 
+  Si ejecutas este bloque de forma aislada, Python puede mostrar un error de tipo 
+  <code>NameError</code>.
+</div>
+
 <div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>07_visualizacion_regresion.py</strong></div><pre><code># Visualización: precio real vs. precio predicho.
 # Un punto cercano a la línea diagonal indica una predicción cercana al valor real.
 
@@ -624,9 +759,14 @@ plt.show()</code></pre></div>
 <div class="callout"><strong>Lectura del gráfico:</strong> si los puntos se agrupan cerca de la línea diagonal, el modelo predice bien. Si se alejan mucho, el modelo comete errores grandes.</div>
 <div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen por qué no es recomendable evaluar un modelo usando una sola métrica. Aunque un modelo tenga un valor de <strong>R²</strong> aceptable, eso no significa necesariamente que sus predicciones sean buenas en todos los casos.</p>
 
-<p>Recuerden que el <strong>R²</strong> indica qué proporción de la variabilidad de los datos puede explicar el modelo, pero no muestra directamente en qué casos específicos el modelo se equivoca más. Por ejemplo, un modelo podría funcionar bien para viviendas de precio medio, pero cometer errores grandes al predecir viviendas muy económicas o muy costosas.</p>
+<p><p></p>
+  Recuerden que el <strong>R²</strong> indica qué proporción de la variabilidad de los datos puede explicar el modelo, pero no muestra directamente en qué casos específicos el modelo se equivoca más. Por ejemplo, un modelo podría funcionar bien para viviendas de precio medio, pero cometer errores grandes al predecir viviendas muy económicas o muy costosas.
+</p>
 
-<p>Por eso, además de revisar el <strong>R²</strong>, también conviene analizar métricas como el <strong>MAE</strong>, el <strong>MSE</strong> o el <strong>RMSE</strong>, y observar gráficamente la diferencia entre los valores reales y los valores predichos. De esta manera, podemos tener una visión más completa del desempeño del modelo.</p></div></div>
+<p><p></p>
+  Por eso, además de revisar el <strong>R²</strong>, también conviene analizar métricas como el <strong>MAE</strong>, el <strong>MSE</strong> o el <strong>RMSE</strong>, y observar gráficamente la diferencia entre los valores reales y los valores predichos. De esta manera, podemos tener una visión más completa del desempeño del modelo.
+</p>
+</div></div>
 </div></section>
 
 <div class="part-divider container"><span class="part-label" style="color:var(--accent2); border-color:#6b3510;">Parte II — Regresión logística</span></div>
@@ -638,37 +778,175 @@ plt.show()</code></pre></div>
 <div class="highlight-box"><p><strong>Ejemplo:</strong> si el modelo devuelve 0.82 para un correo, podemos interpretarlo como 82% de probabilidad de que pertenezca a la clase positiva, por ejemplo, spam.</p></div>
 <div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen una confusión común sobre la <strong>regresión logística</strong>. Aunque su nombre incluye la palabra “regresión”, este algoritmo no se utiliza para predecir cantidades continuas como precios, salarios, temperaturas o ventas.</p>
 
-<p>La regresión logística se utiliza principalmente para resolver problemas de <strong>clasificación</strong>. Es decir, ayuda a decidir si un ejemplo pertenece o no a una determinada clase. Por ejemplo: si un correo es spam o no es spam, si una transacción es fraudulenta o legítima, o si una vivienda pertenece a una categoría de precio alto o bajo.</p>
+<p><p></p>
+  La regresión logística se utiliza principalmente para resolver problemas de <strong>clasificación</strong>. Es decir, ayuda a decidir si un ejemplo pertenece o no a una determinada clase. Por ejemplo: si un correo es spam o no es spam, si una transacción es fraudulenta o legítima, o si una vivienda pertenece a una categoría de precio alto o bajo.
+</p>
 
-<p>El modelo primero calcula una <strong>probabilidad</strong>, normalmente un valor entre <code>0</code> y <code>1</code>. Después, esa probabilidad se convierte en una clase usando un umbral de decisión. Por ejemplo, si el modelo calcula una probabilidad de <code>0.82</code> y el umbral es <code>0.5</code>, el resultado se clasifica como clase positiva, es decir, <code>1</code>.</p>
+<p><p></p>
+  El modelo primero calcula una <strong>probabilidad</strong>, normalmente un valor entre <code>0</code> y <code>1</code>. Después, esa probabilidad se convierte en una clase usando un umbral de decisión. Por ejemplo, si el modelo calcula una probabilidad de <code>0.82</code> y el umbral es <code>0.5</code>, el resultado se clasifica como clase positiva, es decir, <code>1</code>.
+</p>
 
-<p>En resumen, la regresión logística no responde directamente preguntas como “¿cuánto cuesta esta vivienda?”, sino preguntas como “¿esta vivienda pertenece a la categoría de precio alto?” o “¿este caso pertenece a la clase positiva?”.</p></div></div>
+<p><p></p>
+  En resumen, la regresión logística no responde directamente preguntas como “¿cuánto cuesta esta vivienda?”, sino preguntas como “¿esta vivienda pertenece a la categoría de precio alto?” o “¿este caso pertenece a la clase positiva?”.
+</p>
+</div></div>
 </div></section>
 
-<section class="section" id="s9"><div class="container"><div class="section-label orange">Sección 09</div><h2>Función sigmoide y frontera de decisión</h2>
-<p>La función sigmoide transforma cualquier número real en un valor entre 0 y 1. Por eso es útil para representar probabilidades.</p>
-<div class="formula-block"><div class="formula">σ(z) = 1 / (1 + e<sup>−z</sup>)</div><div class="formula-label">Función sigmoide</div></div>
-<p>Después de calcular una probabilidad, aplicamos un <strong>umbral de decisión</strong>. Normalmente usamos 0.5: si la probabilidad es mayor o igual a 0.5, predecimos clase 1; si es menor, predecimos clase 0.</p>
-<div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>09_sigmoide.py</strong></div><pre><code># Función sigmoide para transformar cualquier número real en una probabilidad.
+<section class="section" id="s9">
+  <div class="container">
+    <div class="section-label orange">Sección 09</div>
+    <h2>Función sigmoide y frontera de decisión</h2>
+
+    <p>
+      En regresión logística, el modelo no entrega directamente una clase como <code>0</code> o <code>1</code>. 
+      Primero calcula un valor numérico llamado <strong>z</strong>, que proviene de una combinación lineal de las variables de entrada.
+      Después, ese valor se transforma en una probabilidad usando la <strong>función sigmoide</strong>.
+    </p>
+
+    <div class="formula-block">
+      <div class="formula">z = θ₀ + θ₁x</div>
+      <div class="formula-label">Combinación lineal antes de aplicar la sigmoide</div>
+    </div>
+
+    <p>
+      El problema es que <code>z</code> puede tomar cualquier valor: puede ser negativo, cero o positivo. 
+      Por ejemplo, podría ser <code>-6</code>, <code>0</code>, <code>2</code> o <code>10</code>. 
+      Sin embargo, para clasificar necesitamos una salida más fácil de interpretar. Ahí es donde aparece la función sigmoide.
+    </p>
+
+    <div class="formula-block">
+      <div class="formula">σ(z) = 1 / (1 + e<sup>−z</sup>)</div>
+      <div class="formula-label">Función sigmoide</div>
+    </div>
+
+    <p>
+      La función sigmoide transforma cualquier número real en un valor entre <code>0</code> y <code>1</code>. 
+      Por eso es útil para representar probabilidades. Si el valor de <code>z</code> es muy negativo, la probabilidad se acerca a <code>0</code>. 
+      Si <code>z</code> es igual a <code>0</code>, la probabilidad es exactamente <code>0.5</code>. 
+      Si <code>z</code> es muy positivo, la probabilidad se acerca a <code>1</code>.
+    </p>
+
+    <div class="highlight-box">
+      <p>
+        <strong>Idea clave:</strong> la regresión logística primero calcula un valor lineal <code>z</code>, 
+        después usa la función sigmoide para convertir ese valor en una probabilidad, 
+        y finalmente transforma esa probabilidad en una clase usando un umbral de decisión.
+      </p>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <span></span><span></span><span></span>
+        <strong>09_sigmoide.py</strong>
+      </div>
+      <pre><code># Función sigmoide para transformar cualquier número real en una probabilidad.
 # Si z es muy grande, la probabilidad se acerca a 1.
 # Si z es muy pequeño o negativo, la probabilidad se acerca a 0.
+# Si z es igual a 0, la probabilidad es 0.5.
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 def sigmoid(z):
     # np.exp(-z) calcula e elevado a -z.
     return 1 / (1 + np.exp(-z))
 
+# Valores de ejemplo para observar cómo cambia la función sigmoide.
 values = np.array([-6, -2, 0, 2, 6])
 probabilities = sigmoid(values)
 
 for z, p in zip(values, probabilities):
-    print(f&quot;z = {z:&gt;2}  -&gt;  sigmoid(z) = {p:.4f}&quot;)</code></pre></div>
-<div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>09_clasificacion_simple.py</strong></div><pre><code># Ejemplo breve de clasificación binaria con una regla logística simple.
+    print(f&quot;z = {z:&gt;2}  -&gt;  sigmoid(z) = {p:.4f}&quot;)
+
+# Generamos más valores para dibujar una curva suave.
+z_values = np.linspace(-8, 8, 200)
+sigmoid_values = sigmoid(z_values)
+
+plt.figure(figsize=(9, 5))
+
+# Dibujamos la curva sigmoide.
+plt.plot(z_values, sigmoid_values, label=&quot;σ(z) = 1 / (1 + e^(-z))&quot;)
+
+# Línea horizontal del umbral común de decisión.
+plt.axhline(y=0.5, linestyle=&quot;--&quot;, label=&quot;Umbral = 0.5&quot;)
+
+# Línea vertical en z = 0.
+plt.axvline(x=0, linestyle=&quot;--&quot;, label=&quot;z = 0&quot;)
+
+# Marcamos los valores de ejemplo.
+plt.scatter(values, probabilities, s=80)
+
+plt.title(&quot;Función sigmoide&quot;)
+plt.xlabel(&quot;Valor de z&quot;)
+plt.ylabel(&quot;Probabilidad estimada&quot;)
+plt.grid(True)
+plt.legend()
+plt.show()</code></pre>
+    </div>
+
+    <p>
+      En este ejemplo, el arreglo <code>values</code> contiene diferentes valores de <code>z</code>. 
+      Al aplicar la función <code>sigmoid()</code>, cada valor se convierte en una probabilidad. 
+      Observa que los valores negativos producen probabilidades menores a <code>0.5</code>, 
+      mientras que los valores positivos producen probabilidades mayores a <code>0.5</code>.
+    </p>
+
+    <p>
+      La gráfica ayuda a visualizar este comportamiento. La curva tiene forma de “S”: 
+      al inicio se mantiene cerca de <code>0</code>, después crece rápidamente alrededor de <code>z = 0</code>, 
+      y finalmente se aproxima a <code>1</code>. Esto permite que el modelo exprese su salida como una probabilidad.
+    </p>
+
+    <h3 class="orange">Del valor z a una decisión de clasificación</h3>
+
+    <p>
+      Una vez que el modelo calcula una probabilidad, todavía necesitamos convertir esa probabilidad en una clase. 
+      Para hacerlo usamos un <strong>umbral de decisión</strong>. El umbral más común es <code>0.5</code>.
+    </p>
+
+    <ul class="content-list">
+      <li>Si la probabilidad es mayor o igual a <code>0.5</code>, el modelo predice la clase <code>1</code>.</li>
+      <li>Si la probabilidad es menor que <code>0.5</code>, el modelo predice la clase <code>0</code>.</li>
+      <li>La clase <code>1</code> suele representar el resultado positivo, como aprobar, comprar, responder sí o pertenecer a una categoría.</li>
+      <li>La clase <code>0</code> suele representar el resultado negativo, como no aprobar, no comprar, responder no o no pertenecer a una categoría.</li>
+    </ul>
+
+    <div class="formula-block">
+      <div class="formula">
+        si σ(z) ≥ 0.5 → clase 1<br>
+        si σ(z) &lt; 0.5 → clase 0
+      </div>
+      <div class="formula-label">Regla básica de clasificación</div>
+    </div>
+
+    <div class="callout">
+      <strong>Frontera de decisión:</strong> es el punto, línea o región donde el modelo cambia de una clase a otra. 
+      En un caso con una sola variable, la frontera puede ser un punto. En modelos con dos variables, puede visualizarse como una línea que separa dos regiones.
+    </div>
+
+    <h3 class="orange">Ejemplo: clasificar si un estudiante aprueba</h3>
+
+    <p>
+      Supongamos que queremos predecir si un estudiante aprueba un examen usando como entrada sus horas de estudio. 
+      En este ejemplo, la clase <code>1</code> significa <strong>aprueba</strong> y la clase <code>0</code> significa <strong>no aprueba</strong>.
+    </p>
+
+    <p>
+      Usaremos una regla logística simple con parámetros definidos manualmente. 
+      El objetivo no es entrenar todavía el modelo, sino entender cómo la combinación lineal, la sigmoide, la probabilidad y el umbral trabajan juntos.
+    </p>
+
+    <div class="code-block">
+      <div class="code-header">
+        <span></span><span></span><span></span>
+        <strong>09_clasificacion_simple.py</strong>
+      </div>
+      <pre><code># Ejemplo de clasificación binaria con una regla logística simple.
 # Queremos clasificar si un estudiante aprueba (1) o no aprueba (0)
 # usando como entrada las horas de estudio.
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
@@ -677,24 +955,134 @@ def sigmoid(z):
 theta0 = -4.0       # Intercepto: desplaza la curva hacia la izquierda o derecha
 theta1 = 1.2        # Pendiente: controla qué tan rápido cambia la probabilidad
 
+# Horas de estudio de diferentes estudiantes.
 hours = np.array([1, 2, 3, 4, 5, 6])
+
+# Primero calculamos el valor lineal z.
 z = theta0 + theta1 * hours
+
+# Después convertimos z en probabilidad con la función sigmoide.
 prob_pass = sigmoid(z)
 
 # Umbral de decisión: si la probabilidad es &gt;= 0.5, clasificamos como aprobado.
-predictions = (prob_pass &gt;= 0.5).astype(int)
+threshold = 0.5
+predictions = (prob_pass &gt;= threshold).astype(int)
 
-for h, p, pred in zip(hours, prob_pass, predictions):
-    print(f&quot;Horas: {h} | Probabilidad de aprobar: {p:.2f} | Clase: {pred}&quot;)</code></pre></div>
-<div class="callout"><strong>Frontera de decisión:</strong> es el punto o línea donde el modelo cambia de una clase a otra. En un caso simple, ocurre cuando la probabilidad llega a 0.5.</div>
-<div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen el significado de una <strong>probabilidad</strong> dentro de un modelo de clasificación. Una probabilidad no debe interpretarse como una certeza absoluta, sino como una estimación del nivel de confianza del modelo sobre un posible resultado.</p>
+for h, z_value, p, pred in zip(hours, z, prob_pass, predictions):
+    print(
+        f&quot;Horas: {h} | z = {z_value:.2f} | &quot;
+        f&quot;Probabilidad de aprobar: {p:.2f} | Clase: {pred}&quot;
+    )
 
-<p>Por ejemplo, supongamos que un modelo usa las <strong>horas de estudio</strong> de un estudiante para estimar si aprobará un examen. Si el modelo calcula una probabilidad de <code>0.70</code>, esto significa que, según los patrones aprendidos en los datos, el estudiante tiene un <strong>70% de probabilidad de aprobar</strong>.</p>
+# Calculamos la frontera de decisión.
+# La frontera ocurre cuando la probabilidad es 0.5.
+# En la sigmoide, σ(z) = 0.5 cuando z = 0.
+# Entonces:
+# 0 = theta0 + theta1*x
+# x = -theta0 / theta1
 
-<p>Sin embargo, eso no significa que aprobará con seguridad. Todavía existe un <strong>30% de probabilidad de reprobar</strong>. En otras palabras, un estudiante con una probabilidad de <code>0.70</code> podría aprobar, pero también podría reprobar.</p>
+decision_boundary = -theta0 / theta1
 
-<p>Por esta razón, en regresión logística debemos entender la salida del modelo como una <strong>probabilidad estimada</strong>, no como una garantía. Después, esa probabilidad se convierte en una clase usando un umbral de decisión, por ejemplo <code>0.5</code>.</p></div></div>
-</div></section>
+print(f&quot;Frontera de decisión: {decision_boundary:.2f} horas&quot;)
+
+# Generamos valores continuos para dibujar la curva.
+hours_curve = np.linspace(0, 7, 200)
+z_curve = theta0 + theta1 * hours_curve
+prob_curve = sigmoid(z_curve)
+
+plt.figure(figsize=(9, 5))
+
+# Curva de probabilidad.
+plt.plot(hours_curve, prob_curve, label=&quot;Probabilidad de aprobar&quot;)
+
+# Puntos evaluados.
+plt.scatter(hours, prob_pass, s=80, label=&quot;Estudiantes evaluados&quot;)
+
+# Umbral de decisión.
+plt.axhline(y=threshold, linestyle=&quot;--&quot;, label=&quot;Umbral = 0.5&quot;)
+
+# Frontera de decisión.
+plt.axvline(
+    x=decision_boundary,
+    linestyle=&quot;--&quot;,
+    label=f&quot;Frontera ≈ {decision_boundary:.2f} horas&quot;
+)
+
+plt.title(&quot;Regresión logística: probabilidad y frontera de decisión&quot;)
+plt.xlabel(&quot;Horas de estudio&quot;)
+plt.ylabel(&quot;Probabilidad estimada de aprobar&quot;)
+plt.ylim(-0.05, 1.05)
+plt.grid(True)
+plt.legend()
+plt.show()</code></pre>
+    </div>
+
+    <p>
+      En este segundo ejemplo, el modelo calcula primero el valor <code>z</code> para cada cantidad de horas de estudio. 
+      Después, aplica la función sigmoide para obtener la probabilidad de aprobar. 
+      Finalmente, compara esa probabilidad con el umbral de decisión <code>0.5</code>.
+    </p>
+
+    <p>
+      La frontera de decisión ocurre cuando la probabilidad es exactamente <code>0.5</code>. 
+      En la función sigmoide, eso sucede cuando <code>z = 0</code>. 
+      Como en este ejemplo usamos la expresión <code>z = -4.0 + 1.2x</code>, podemos encontrar la frontera resolviendo:
+    </p>
+
+    <div class="formula-block">
+      <div class="formula">
+        0 = −4.0 + 1.2x<br>
+        1.2x = 4.0<br>
+        x = 4.0 / 1.2 ≈ 3.33
+      </div>
+      <div class="formula-label">Cálculo de la frontera de decisión</div>
+    </div>
+
+    <p>
+      Esto significa que, según esta regla logística, alrededor de <code>3.33</code> horas de estudio es el punto donde el modelo cambia su decisión. 
+      Si un estudiante estudia menos que ese valor, la probabilidad estimada tiende a ser menor que <code>0.5</code>, por lo que el modelo predice clase <code>0</code>. 
+      Si estudia más que ese valor, la probabilidad estimada tiende a ser mayor que <code>0.5</code>, por lo que el modelo predice clase <code>1</code>.
+    </p>
+
+    <div class="highlight-box">
+      <p>
+        <strong>Interpretación práctica:</strong> la frontera de decisión no significa que todos los estudiantes que estudian más de 
+        <code>3.33</code> horas aprobarán con seguridad. Significa que, bajo esta regla, ese es el punto donde el modelo empieza a clasificar 
+        los casos como clase positiva. La salida sigue siendo una probabilidad estimada, no una garantía absoluta.
+      </p>
+    </div>
+
+    <div class="instructor-wrap">
+      <button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button>
+      <div class="instructor-note hidden">
+        <strong>Nota para el participante:</strong> Analicen el significado de una <strong>probabilidad</strong> dentro de un modelo de clasificación. 
+        Una probabilidad no debe interpretarse como una certeza absoluta, sino como una estimación del nivel de confianza del modelo sobre un posible resultado.
+
+        <p>
+          Por ejemplo, supongamos que un modelo usa las <strong>horas de estudio</strong> de un estudiante para estimar si aprobará un examen. 
+          Si el modelo calcula una probabilidad de <code>0.70</code>, esto significa que, según los patrones representados por el modelo, 
+          el estudiante tiene un <strong>70% de probabilidad de aprobar</strong>.
+        </p>
+
+        <p>
+          Sin embargo, eso no significa que aprobará con seguridad. Todavía existe un <strong>30% de probabilidad de reprobar</strong>. 
+          En otras palabras, un estudiante con una probabilidad de <code>0.70</code> podría aprobar, pero también podría reprobar.
+        </p>
+
+        <p>
+          Por esta razón, en regresión logística debemos entender la salida del modelo como una <strong>probabilidad estimada</strong>, 
+          no como una garantía. Después, esa probabilidad se convierte en una clase usando un umbral de decisión, por ejemplo <code>0.5</code>.
+        </p>
+
+        <p>
+          También es importante notar que cambiar el umbral cambia las decisiones del modelo. 
+          Por ejemplo, si usamos un umbral de <code>0.7</code>, el modelo será más estricto para clasificar un caso como clase positiva. 
+          Si usamos un umbral de <code>0.3</code>, será más flexible y clasificará más casos como positivos.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="s10"><div class="container"><div class="section-label green">Sección 10</div><h2>Costo logístico y entrenamiento</h2>
 <p>En regresión logística no usamos MSE como función principal de costo, porque necesitamos penalizar de manera especial las predicciones muy confiadas pero incorrectas. Para ello se usa comúnmente la <strong>entropía cruzada binaria</strong> o <strong>log-loss</strong>.</p>
@@ -703,11 +1091,19 @@ for h, p, pred in zip(hours, prob_pass, predictions):
 <div class="highlight-box"><p><strong>Idea clave:</strong> el entrenamiento busca ajustar los parámetros para que las probabilidades sean altas en ejemplos positivos y bajas en ejemplos negativos.</p></div>
 <div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen la función de costo de la regresión logística desde una perspectiva intuitiva. En una sesión introductoria no es necesario demostrar toda la derivada matemática; lo más importante es comprender qué intenta lograr el modelo.</p>
 
-<p>La idea central es que el <strong>costo disminuye</strong> cuando el modelo asigna probabilidades coherentes con las etiquetas reales. Por ejemplo, si un caso pertenece a la clase positiva, es decir, <code>y = 1</code>, el modelo debería asignarle una probabilidad alta, como <code>0.85</code> o <code>0.90</code>. En cambio, si le asigna una probabilidad baja, como <code>0.10</code>, el costo aumenta porque la predicción va en contra de la etiqueta real.</p>
+<p><p></p>
+  La idea central es que el <strong>costo disminuye</strong> cuando el modelo asigna probabilidades coherentes con las etiquetas reales. Por ejemplo, si un caso pertenece a la clase positiva, es decir, <code>y = 1</code>, el modelo debería asignarle una probabilidad alta, como <code>0.85</code> o <code>0.90</code>. En cambio, si le asigna una probabilidad baja, como <code>0.10</code>, el costo aumenta porque la predicción va en contra de la etiqueta real.
+</p>
 
-<p>De la misma manera, si un caso pertenece a la clase negativa, es decir, <code>y = 0</code>, el modelo debería asignarle una probabilidad cercana a <code>0</code>. Si el modelo predice una probabilidad muy alta para esa clase positiva, por ejemplo <code>0.92</code>, estaría cometiendo un error importante y la función de costo lo penalizaría.</p>
+<p><p></p>
+  De la misma manera, si un caso pertenece a la clase negativa, es decir, <code>y = 0</code>, el modelo debería asignarle una probabilidad cercana a <code>0</code>. Si el modelo predice una probabilidad muy alta para esa clase positiva, por ejemplo <code>0.92</code>, estaría cometiendo un error importante y la función de costo lo penalizaría.
+</p>
 
-<p>En resumen, la función de costo ayuda al modelo a aprender porque recompensa las probabilidades que coinciden con las etiquetas reales y penaliza las probabilidades equivocadas, especialmente cuando el modelo se equivoca con mucha seguridad.</p></div></div>
+<p><p></p>
+  En resumen, la función de costo ayuda al modelo a aprender porque recompensa las probabilidades que coinciden con las etiquetas reales y penaliza las probabilidades equivocadas, especialmente cuando el modelo se equivoca con mucha seguridad.
+</p>
+
+</div></div>
 </div></section>
 
 <section class="section" id="s11"><div class="container"><div class="section-label green">Sección 11</div><h2>Regresión logística con scikit-learn</h2>
@@ -757,6 +1153,15 @@ print(confusion_matrix(y_test, y_pred))
 print(&quot;Reporte de clasificación:&quot;)
 print(classification_report(y_test, y_pred, target_names=data.target_names))</code></pre></div>
 <p>La matriz de confusión permite ver cuántas predicciones fueron correctas y cuántas fueron errores de cada tipo. En aplicaciones médicas, esta información es más importante que mirar únicamente el accuracy.</p>
+
+<div class="callout">
+  <strong>Antes de ejecutar este código:</strong> asegúrate de haber ejecutado el bloque anterior. 
+  Este ejemplo reutiliza variables que ya fueron creadas previamente, como 
+  <code>X</code>, <code>y</code>, <code>X_train_scaled</code>, <code>y_test</code> o <code>y_pred</code>. 
+  Si ejecutas este bloque de forma aislada, Python puede mostrar un error de tipo 
+  <code>NameError</code>.
+</div>
+
 <div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>11_matriz_confusion.py</strong></div><pre><code># Matriz de confusión visual.
 # Filas: clase real.
 # Columnas: clase predicha.
@@ -771,17 +1176,36 @@ plt.title(&quot;Matriz de confusión - Regresión logística&quot;)
 plt.show()</code></pre></div>
 <div class="instructor-wrap"><button class="note-toggle" type="button" onclick="toggleNote(this)">Mostrar nota</button><div class="instructor-note hidden"><strong>Nota para el participante:</strong> Analicen el significado de los <strong>falsos positivos</strong> y los <strong>falsos negativos</strong> dentro de un modelo de clasificación. Estos errores son importantes porque no todos los errores tienen el mismo impacto en la vida real.</p>
 
-<p>Un <strong>falso positivo</strong> ocurre cuando el modelo predice que un caso pertenece a la clase positiva, pero en realidad no pertenece a esa clase. Por ejemplo, en un contexto de salud, sería cuando el modelo indica que una persona podría tener una enfermedad, pero realmente no la tiene.</p>
+<p><p></p>
+  Un <strong>falso positivo</strong> ocurre cuando el modelo predice que un caso pertenece a la clase positiva, pero en realidad no pertenece a esa clase. Por ejemplo, en un contexto de salud, sería cuando el modelo indica que una persona podría tener una enfermedad, pero realmente no la tiene.
+</p>
 
-<p>Un <strong>falso negativo</strong> ocurre cuando el modelo predice que un caso pertenece a la clase negativa, pero en realidad sí pertenece a la clase positiva. En salud, este tipo de error puede ser especialmente grave, porque el modelo indica que no hay problema cuando en realidad sí lo hay.</p>
+<p><p></p>
+  Un <strong>falso negativo</strong> ocurre cuando el modelo predice que un caso pertenece a la clase negativa, pero en realidad sí pertenece a la clase positiva. En salud, este tipo de error puede ser especialmente grave, porque el modelo indica que no hay problema cuando en realidad sí lo hay.
+</p>
 
-<p>Por ejemplo, si un modelo analiza información médica y predice que un paciente no tiene una enfermedad, pero el paciente sí la tiene, se produce un falso negativo. Esto podría retrasar el diagnóstico, el tratamiento y la atención necesaria.</p>
+<p><p></p>
+  Por ejemplo, si un modelo analiza información médica y predice que un paciente no tiene una enfermedad, pero el paciente sí la tiene, se produce un falso negativo. Esto podría retrasar el diagnóstico, el tratamiento y la atención necesaria.
+</p>
 
-<p>Por esta razón, al evaluar modelos de clasificación no basta con revisar solo la exactitud general. También es importante analizar la matriz de confusión, la precisión y el recall, especialmente cuando los falsos negativos pueden tener consecuencias graves.</p></div></div>
+<p><p></p>
+  Por esta razón, al evaluar modelos de clasificación no basta con revisar solo la exactitud general. También es importante analizar la matriz de confusión, la precisión y el recall, especialmente cuando los falsos negativos pueden tener consecuencias graves.
+</p>
+
+</div></div>
 </div></section>
 
 <section class="section" id="s12"><div class="container"><div class="section-label red">Sección 12</div><h2>Ejercicios finales, regularización y cierre</h2>
 <p>La regularización ayuda a reducir el sobreajuste. En regresión logística con scikit-learn, el parámetro <code>C</code> controla la fuerza de regularización de forma inversa: valores más pequeños aplican más regularización.</p>
+
+<div class="callout">
+  <strong>Antes de ejecutar este código:</strong> asegúrate de haber ejecutado el bloque anterior. 
+  Este ejemplo reutiliza variables que ya fueron creadas previamente, como 
+  <code>X</code>, <code>y</code>, <code>X_train_scaled</code>, <code>y_test</code> o <code>y_pred</code>. 
+  Si ejecutas este bloque de forma aislada, Python puede mostrar un error de tipo 
+  <code>NameError</code>.
+</div>
+
 <div class="code-block"><div class="code-header"><span></span><span></span><span></span><strong>12_regularizacion.py</strong></div><pre><code># Regularización en regresión logística.
 # C controla la fuerza de regularización en scikit-learn.
 # C pequeño = más regularización.
@@ -1150,112 +1574,102 @@ comparison[<span class="str">"Nombre clase predicha"</span>] = [
 
 <section class="section" id="quiz-final">
   <div class="container">
-    <div class="section-label red">Sección 13</div>
-    <h2>Quiz final del taller</h2>
+    <div class="section-label red">Evaluación final</div>
+    <h2>Quiz final: Regresión lineal, regresión logística e IA con Python</h2>
 
     <p>
-      Este quiz permite verificar la comprensión general del taller. Responde las 10 preguntas de opción múltiple. Cada pregunta tiene cuatro opciones, pero solo una respuesta es correcta. La puntuación mínima sugerida para aprobar es del <strong>70%</strong>.
+      Responde las siguientes preguntas de opción múltiple. Cada pregunta tiene cuatro posibles respuestas, pero solo una es correcta. La puntuación mínima aprobatoria es de <strong>70%</strong>, equivalente a <strong>7 respuestas correctas de 10</strong>.
     </p>
 
     <div class="callout">
-      <strong>Instrucciones:</strong> selecciona una respuesta por pregunta y presiona el botón <strong>Evaluar quiz</strong>. El sistema calculará tu resultado y mostrará si alcanzaste la puntuación mínima requerida.
+      <strong>Instrucción:</strong> selecciona una respuesta por pregunta y presiona el botón <strong>Evaluar quiz</strong> al final. El sistema calculará tu puntuación y te indicará si aprobaste o si necesitas repasar el contenido.
     </div>
 
-    <form id="final-quiz-form">
+    <form id="quizForm">
       <div class="exercise-box">
-        <div class="exercise-title">Pregunta 1</div>
-        <p>¿Cuál es una razón importante por la que Python se usa ampliamente en Inteligencia Artificial?</p>
-        <label><input type="radio" name="q1" value="a"> Porque solo permite trabajar con modelos de texto.</label><br>
-        <label><input type="radio" name="q1" value="b"> Porque tiene bibliotecas como NumPy, Pandas, Matplotlib y scikit-learn.</label><br>
-        <label><input type="radio" name="q1" value="c"> Porque evita la necesidad de usar datos.</label><br>
-        <label><input type="radio" name="q1" value="d"> Porque todos los modelos se entrenan automáticamente sin configuración.</label>
+        <div class="exercise-title">1. ¿Qué describe mejor a la Inteligencia Artificial en el contexto de este taller?</div>
+        <label><input type="radio" name="q1" value="a"> Un conjunto de técnicas que permiten analizar datos, aprender patrones y apoyar predicciones o decisiones.</label><br>
+        <label><input type="radio" name="q1" value="b"> Una herramienta que siempre produce respuestas perfectas sin necesidad de datos.</label><br>
+        <label><input type="radio" name="q1" value="c"> Un lenguaje de programación alternativo a Python.</label><br>
+        <label><input type="radio" name="q1" value="d"> Un sistema que no requiere evaluación porque aprende automáticamente.</label>
       </div>
 
       <div class="exercise-box">
-        <div class="exercise-title">Pregunta 2</div>
-        <p>En aprendizaje supervisado, ¿qué representa la variable objetivo <code>y</code>?</p>
-        <label><input type="radio" name="q2" value="a"> La respuesta correcta o valor que el modelo intenta aprender a predecir.</label><br>
-        <label><input type="radio" name="q2" value="b"> El nombre del archivo donde se guarda el modelo.</label><br>
-        <label><input type="radio" name="q2" value="c"> El número de veces que se ejecuta el programa.</label><br>
-        <label><input type="radio" name="q2" value="d"> El error producido por Matplotlib.</label>
+        <div class="exercise-title">2. ¿Por qué Python es ampliamente utilizado en proyectos de IA y Machine Learning?</div>
+        <label><input type="radio" name="q2" value="a"> Porque permite trabajar con datos, modelos, visualizaciones y bibliotecas especializadas de forma clara y práctica.</label><br>
+        <label><input type="radio" name="q2" value="b"> Porque elimina la necesidad de comprender los datos.</label><br>
+        <label><input type="radio" name="q2" value="c"> Porque solo sirve para crear páginas web.</label><br>
+        <label><input type="radio" name="q2" value="d"> Porque todos los modelos entrenados en Python son correctos por defecto.</label>
       </div>
 
       <div class="exercise-box">
-        <div class="exercise-title">Pregunta 3</div>
-        <p>¿Qué tipo de problema resuelve principalmente la regresión lineal?</p>
-        <label><input type="radio" name="q3" value="a"> Predicción de valores numéricos continuos.</label><br>
-        <label><input type="radio" name="q3" value="b"> Clasificación exclusiva de imágenes.</label><br>
-        <label><input type="radio" name="q3" value="c"> Traducción automática de idiomas.</label><br>
-        <label><input type="radio" name="q3" value="d"> Agrupamiento sin datos de entrada.</label>
+        <div class="exercise-title">3. ¿Qué tipo de aprendizaje se utiliza cuando entrenamos un modelo con ejemplos que ya incluyen la respuesta correcta?</div>
+        <label><input type="radio" name="q3" value="a"> Aprendizaje supervisado.</label><br>
+        <label><input type="radio" name="q3" value="b"> Aprendizaje no supervisado.</label><br>
+        <label><input type="radio" name="q3" value="c"> Aprendizaje por refuerzo sin datos.</label><br>
+        <label><input type="radio" name="q3" value="d"> Aprendizaje aleatorio sin etiquetas.</label>
       </div>
 
       <div class="exercise-box">
-        <div class="exercise-title">Pregunta 4</div>
-        <p>En la hipótesis <code>h(x) = θ₀ + θ₁x</code>, ¿qué representa <code>θ₁</code>?</p>
-        <label><input type="radio" name="q4" value="a"> La pendiente o peso asociado a la característica de entrada.</label><br>
-        <label><input type="radio" name="q4" value="b"> El número total de filas del dataset.</label><br>
-        <label><input type="radio" name="q4" value="c"> La variable que contiene las predicciones finales de clasificación.</label><br>
-        <label><input type="radio" name="q4" value="d"> El valor mínimo requerido para aprobar el taller.</label>
+        <div class="exercise-title">4. ¿Cuál es el objetivo principal de la regresión lineal?</div>
+        <label><input type="radio" name="q4" value="a"> Predecir un valor numérico continuo a partir de una o más variables de entrada.</label><br>
+        <label><input type="radio" name="q4" value="b"> Clasificar imágenes en categorías complejas.</label><br>
+        <label><input type="radio" name="q4" value="c"> Convertir automáticamente texto en audio.</label><br>
+        <label><input type="radio" name="q4" value="d"> Agrupar datos sin conocer ninguna respuesta esperada.</label>
       </div>
 
       <div class="exercise-box">
-        <div class="exercise-title">Pregunta 5</div>
-        <p>¿Cuál es el propósito de una función de costo como el MSE en regresión lineal?</p>
-        <label><input type="radio" name="q5" value="a"> Medir qué tan lejos están las predicciones de los valores reales.</label><br>
-        <label><input type="radio" name="q5" value="b"> Convertir imágenes en texto.</label><br>
-        <label><input type="radio" name="q5" value="c"> Eliminar la necesidad de entrenar el modelo.</label><br>
-        <label><input type="radio" name="q5" value="d"> Cambiar automáticamente Python por otro lenguaje.</label>
+        <div class="exercise-title">5. En la hipótesis <code>h(x) = θ₀ + θ₁x</code>, ¿qué representa normalmente <code>θ₁</code>?</div>
+        <label><input type="radio" name="q5" value="a"> La pendiente, es decir, cuánto cambia la predicción cuando cambia la variable de entrada.</label><br>
+        <label><input type="radio" name="q5" value="b"> El valor real observado en el dataset.</label><br>
+        <label><input type="radio" name="q5" value="c"> El tamaño total del conjunto de datos.</label><br>
+        <label><input type="radio" name="q5" value="d"> La clase final de una clasificación binaria.</label>
       </div>
 
       <div class="exercise-box">
-        <div class="exercise-title">Pregunta 6</div>
-        <p>¿Qué busca hacer el descenso del gradiente durante el entrenamiento?</p>
-        <label><input type="radio" name="q6" value="a"> Aumentar el error para que el modelo memorice todos los datos.</label><br>
-        <label><input type="radio" name="q6" value="b"> Ajustar los parámetros del modelo para reducir el costo o error.</label><br>
-        <label><input type="radio" name="q6" value="c"> Reemplazar las bibliotecas de Python por HTML.</label><br>
-        <label><input type="radio" name="q6" value="d"> Convertir todos los problemas en agrupamiento no supervisado.</label>
+        <div class="exercise-title">6. ¿Para qué se utiliza una función de costo como el MSE en regresión lineal?</div>
+        <label><input type="radio" name="q6" value="a"> Para medir qué tan lejos están las predicciones del modelo respecto a los valores reales.</label><br>
+        <label><input type="radio" name="q6" value="b"> Para convertir una probabilidad en una clase.</label><br>
+        <label><input type="radio" name="q6" value="c"> Para borrar automáticamente los datos incorrectos.</label><br>
+        <label><input type="radio" name="q6" value="d"> Para reemplazar la necesidad de entrenar el modelo.</label>
       </div>
 
       <div class="exercise-box">
-        <div class="exercise-title">Pregunta 7</div>
-        <p>¿Para qué se utiliza principalmente la regresión logística?</p>
-        <label><input type="radio" name="q7" value="a"> Para predecir únicamente valores monetarios continuos.</label><br>
-        <label><input type="radio" name="q7" value="b"> Para resolver problemas de clasificación, especialmente binaria.</label><br>
-        <label><input type="radio" name="q7" value="c"> Para crear archivos HTML automáticamente.</label><br>
-        <label><input type="radio" name="q7" value="d"> Para eliminar las etiquetas del dataset.</label>
+        <div class="exercise-title">7. ¿Cuál es la idea principal del descenso del gradiente?</div>
+        <label><input type="radio" name="q7" value="a"> Ajustar los parámetros poco a poco para reducir el error del modelo.</label><br>
+        <label><input type="radio" name="q7" value="b"> Seleccionar filas al azar y eliminar todas las demás.</label><br>
+        <label><input type="radio" name="q7" value="c"> Convertir cualquier problema de regresión en uno de texto.</label><br>
+        <label><input type="radio" name="q7" value="d"> Evitar que el modelo use datos de entrenamiento.</label>
       </div>
 
       <div class="exercise-box">
-        <div class="exercise-title">Pregunta 8</div>
-        <p>¿Qué hace la función sigmoide en regresión logística?</p>
-        <label><input type="radio" name="q8" value="a"> Transforma un valor real en una probabilidad entre 0 y 1.</label><br>
-        <label><input type="radio" name="q8" value="b"> Convierte una tabla en una imagen.</label><br>
-        <label><input type="radio" name="q8" value="c"> Calcula directamente el RMSE de una regresión lineal.</label><br>
-        <label><input type="radio" name="q8" value="d"> Elimina automáticamente los falsos positivos.</label>
+        <div class="exercise-title">8. ¿Cuál es el objetivo principal de la regresión logística?</div>
+        <label><input type="radio" name="q8" value="a"> Estimar la probabilidad de pertenecer a una clase y tomar una decisión de clasificación.</label><br>
+        <label><input type="radio" name="q8" value="b"> Predecir siempre un precio exacto.</label><br>
+        <label><input type="radio" name="q8" value="c"> Calcular únicamente la media de una columna.</label><br>
+        <label><input type="radio" name="q8" value="d"> Ordenar los datos alfabéticamente.</label>
       </div>
 
       <div class="exercise-box">
-        <div class="exercise-title">Pregunta 9</div>
-        <p>En clasificación binaria, si usamos un umbral de <code>0.5</code>, ¿qué ocurre cuando la probabilidad estimada es <code>0.72</code>?</p>
-        <label><input type="radio" name="q9" value="a"> El modelo predice clase 0.</label><br>
-        <label><input type="radio" name="q9" value="b"> El modelo no puede producir ninguna clase.</label><br>
-        <label><input type="radio" name="q9" value="c"> El modelo predice clase 1.</label><br>
-        <label><input type="radio" name="q9" value="d"> El modelo cambia automáticamente a regresión lineal.</label>
+        <div class="exercise-title">9. ¿Qué hace la función sigmoide en regresión logística?</div>
+        <label><input type="radio" name="q9" value="a"> Transforma un valor numérico en una probabilidad entre 0 y 1.</label><br>
+        <label><input type="radio" name="q9" value="b"> Convierte una gráfica en una tabla.</label><br>
+        <label><input type="radio" name="q9" value="c"> Elimina automáticamente todos los errores del modelo.</label><br>
+        <label><input type="radio" name="q9" value="d"> Calcula el precio exacto de una vivienda sin entrenamiento.</label>
       </div>
 
       <div class="exercise-box">
-        <div class="exercise-title">Pregunta 10</div>
-        <p>¿Por qué no basta con revisar solo la exactitud general en algunos problemas de clasificación?</p>
-        <label><input type="radio" name="q10" value="a"> Porque métricas como matriz de confusión, precisión y recall ayudan a entender tipos específicos de error.</label><br>
-        <label><input type="radio" name="q10" value="b"> Porque la exactitud siempre es igual a cero.</label><br>
-        <label><input type="radio" name="q10" value="c"> Porque la regresión logística no produce probabilidades.</label><br>
-        <label><input type="radio" name="q10" value="d"> Porque scikit-learn no permite evaluar modelos.</label>
+        <div class="exercise-title">10. ¿Qué representa una matriz de confusión en un problema de clasificación?</div>
+        <label><input type="radio" name="q10" value="a"> Un resumen de aciertos y errores del modelo al comparar clases reales contra clases predichas.</label><br>
+        <label><input type="radio" name="q10" value="b"> Una tabla que solo contiene valores de regresión lineal.</label><br>
+        <label><input type="radio" name="q10" value="c"> Una función para crear datos sintéticos sin etiquetas.</label><br>
+        <label><input type="radio" name="q10" value="d"> Un gráfico que reemplaza completamente el entrenamiento del modelo.</label>
       </div>
 
       <button class="solution-toggle-btn red" type="button" onclick="evaluateFinalQuiz()">Evaluar quiz</button>
     </form>
 
-    <div id="quiz-final-result" class="highlight-box" style="display:none;"></div>
+    <div id="quizResult" class="highlight-box" style="display:none;"></div>
   </div>
 </section>
 
@@ -1291,15 +1705,15 @@ function toggleNote(button) {
 <script>
 function evaluateFinalQuiz() {
   const answers = {
-    q1: "b",
+    q1: "a",
     q2: "a",
     q3: "a",
     q4: "a",
     q5: "a",
-    q6: "b",
-    q7: "b",
+    q6: "a",
+    q7: "a",
     q8: "a",
-    q9: "c",
+    q9: "a",
     q10: "a"
   };
 
@@ -1319,26 +1733,18 @@ function evaluateFinalQuiz() {
   }
 
   const percentage = Math.round((score / total) * 100);
+  const resultBox = document.getElementById("quizResult");
   const passed = percentage >= 70;
-  const resultBox = document.getElementById("quiz-final-result");
 
-  let message = `<h3 class="red">Resultado del quiz</h3>`;
-  message += `<p><strong>Puntuación:</strong> ${score} de ${total} respuestas correctas (${percentage}%).</p>`;
-
-  if (unanswered > 0) {
-    message += `<p><strong>Preguntas sin responder:</strong> ${unanswered}. Para una evaluación completa, responde todas las preguntas.</p>`;
-  }
-
-  if (passed) {
-    message += `<p><strong>Resultado:</strong> Aprobado. Alcanzaste la puntuación mínima requerida del 70%.</p>`;
-  } else {
-    message += `<p><strong>Resultado:</strong> No aprobado. La puntuación mínima requerida es del 70%. Revisa nuevamente las secciones sobre regresión lineal, regresión logística, función sigmoide y evaluación de modelos.</p>`;
-  }
-
-  message += `<div class="formula-block"><div class="formula">Puntuación mínima: 70%</div><div class="formula-label">Criterio de aprobación</div></div>`;
-
-  resultBox.innerHTML = message;
   resultBox.style.display = "block";
+  resultBox.innerHTML = `
+    <p><strong>Resultado:</strong> ${score} de ${total} respuestas correctas (${percentage}%).</p>
+    <p><strong>Puntuación mínima aprobatoria:</strong> 70%.</p>
+    <p><strong>Estado:</strong> ${passed ? "Aprobado" : "No aprobado"}.</p>
+    ${unanswered > 0 ? `<p><strong>Preguntas sin responder:</strong> ${unanswered}. Las preguntas no respondidas se cuentan como incorrectas.</p>` : ""}
+    <p>${passed ? "Excelente trabajo. Has demostrado comprensión general de los conceptos principales del taller." : "Te recomendamos repasar las secciones de regresión lineal, regresión logística, función sigmoide, evaluación y matriz de confusión antes de intentarlo nuevamente."}</p>
+  `;
+
   resultBox.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 </script>
